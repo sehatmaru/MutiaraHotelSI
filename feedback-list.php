@@ -35,8 +35,6 @@
                     	<tr bgcolor="#CCCCCC">
                     		<th><h5><b>No</b></h5></th>
                     		<th><h5><b>Nama</b></h5></th>
-							<th><h5><b>Alamat</b></h5></th>
-							<th><h5><b>Email</b></h5></th>
 							<th><h5><b>Rate</b></h5></th>
 							<th><h5><b>Komentar</b></h5></th>
 						</tr>
@@ -47,8 +45,6 @@
 						<tr>
 							<td align="center"><?php echo ("<h5>" . $nomor++ . "</h5>"); ?></td>
 							<td><?php echo ("<h5>" . $data['nama'] . "</h5>"); ?></td>
-							<td><?php echo ("<h5>" . $data['alamat'] . "</h5>") ?></td>
-							<td><?php echo ("<h5><a href='mailto:" . $data['email'] . "'>" . $data['email'] . "</a></h5>") ?></td>
 							<td align="center"><?php echo ("<h5>" . $data['rate'] . "</h5>") ?></td>
 							<td><?php echo ("<h5>" . $data['komentar'] . "</h5>") ?></td>
 						</tr>
