@@ -1,6 +1,6 @@
 <?php
     if(isset($_POST['submit'])){
-        include('koneksi.php');
+        include(dirname(__FILE__).'/common/koneksi.php');
         
         $check_in       = $_POST['check_in'];
         $check_out      = $_POST['check_out'];
@@ -22,31 +22,37 @@
         $start_date = new DateTime($check_in);
         $end_date   = new DateTime($check_out);
         $interval   = $start_date->diff($end_date);
-        $lama_inap  = $interval->days;
+        $length_of_stay  = $interval->days;
         //----END DAY COUNT----//
 
         $query_customer = mysql_query("INSERT INTO customer VALUES(NULL, '$name', '$email', '$phone', '$ktp')")  or die(mysql_error());  //Insert Customer data
 
         //----START RETRIEVE CUSTOMER ID----//
-        $query_select_customer    = mysql_query("SELECT * FROM customer WHERE email='$email'") or die(mysql_error());  //Retrieve data customer
+        $query_select_customer    = mysql_query("SELECT * FROM customer WHERE phone='$phone'") or die(mysql_error());  //Retrieve data customer
         $data_customer  = mysql_fetch_array($query_select_customer);
         $customer_id    = $data_customer['customer_id'];    //Retrieve customer_id
         //----END RETRIEVE CUSTOMER ID----//
+
+        //----START RETRIEVE ROOM NO----//
+        $query_select_kamar     = mysql_query("SELECT * FROM room WHERE room_type_id='$room_type' AND keterangan='Kosong'");
+        $data_kamar     = mysql_fetch_array($query_select_kamar);
+        $room_no    = $data_kamar['room_no'];
+        //----END RETRIEVE ROOM NO----//
         
         //----START RETRIEVE PRICE----//
-        $query_select_kamar    = mysql_query("SELECT * FROM jenis_kamar WHERE id_jenis_kamar='$room_type'") or die(mysql_error());   //Retrieve jenis_kamar data
-        $data_kamar = mysql_fetch_array($query_select_kamar);
-        $data_harga = $data_kamar['harga']; //Payment total
+        $query_select_jenis_kamar    = mysql_query("SELECT * FROM room_type WHERE room_type_id='$room_type'") or die(mysql_error());   //Retrieve jenis_kamar data
+        $data_jenis_kamar = mysql_fetch_array($query_select_jenis_kamar);
+        $data_harga = $data_jenis_kamar['price']; //Payment total
         //----END RETRIEVE PRICE----//
 
-        $pembayaran = number_format($lama_inap*$data_harga);  //Payment total with currency format
+        $payment = number_format($length_of_stay*$data_harga);  //Payment total with currency format
 
-        $query_order   = mysql_query("INSERT INTO pesanan VALUES(NULL, '$name', '$check_in', '$check_out', '$room_type', '$status', '$lama_inap', '$pembayaran')") or die(mysql_error());    //Insert Order data
+        $query_order   = mysql_query("INSERT INTO orders VALUES(NULL, '$customer_id', '$room_no', '$check_in', '$check_out', '$status', '$length_of_stay', '$payment')") or die(mysql_error());    //Insert Order data
 
         //----START RETRIEVE ORDER ID----//
-        $query_select_order    = mysql_query("SELECT * FROM pesanan WHERE order_id='$customer_id'") or die(mysql_error());  //Retrieve data order
+        $query_select_order    = mysql_query("SELECT * FROM orders WHERE orders_id='$customer_id'") or die(mysql_error());  //Retrieve data order
         $data_order = mysql_fetch_array($query_select_order);
-        $order_id       = $data_order['order_id'];
+        $order_id       = $data_order['orders_id'];
         //----END RETRIEVE ORDER ID----//s
 
         if($query_order && $query_customer){
@@ -92,14 +98,14 @@
                                             <td style="color: red; font-size: 14px;"><b><?php echo($order_id) ?></b></td>
                                         </tr>
                                         <tr>
-                                            <td><h5><b>Day Long</b></h5></td>
+                                            <td><h5><b>Length of Stay</b></h5></td>
                                             <td><h5><b> : </b></h5></td>
-                                            <td><h5><b><?php echo($lama_inap . " day(s)"); ?></b></h5></td>
+                                            <td><h5><b><?php echo($length_of_stay . " day(s)"); ?></b></h5></td>
                                         </tr>
                                         <tr>
                                             <td><h5><b>Payment</b></h5></td>
                                             <td><h5><b> : </b></h5></td>
-                                            <td><h5><b>Rp <?php echo($pembayaran) ?></b></h5></td>
+                                            <td><h5><b>Rp <?php echo($payment) ?></b></h5></td>
                                         </tr>
                                         <tr>
                                             <td><h5><b></b></h5></td>
