@@ -9,7 +9,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
    
-    <title>Room</title>
+    <title>Room Type</title>
 
     <link href="css/bootstrap.min.css" rel="stylesheet">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -26,7 +26,7 @@
 	<div class="services">
 		<div class="container">
 			<div class="text-center">
-				<h2>Room</h2>
+				<h2>Room Type</h2>
 			</div>
 				<div class="col-md-3 wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="300ms">
 					<div class="text-center">
