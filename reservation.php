@@ -1,5 +1,9 @@
 <?php
     require_once(dirname(__FILE__).'/common/header.php');
+    include "koneksi.php";
+
+    $query_kamar    = "SELECT id_jenis_kamar, nama FROM jenis_kamar";   //Retrieve data kamar
+    $hasil_query    = mysql_query($query_kamar);
 ?>
 
 <!DOCTYPE html>
@@ -56,6 +60,7 @@
                                         <option selected="Non-Corporate" value="Non-Corporate" id="Non-Corporate">Non-Corporate</option>
                                     </select>   
                                 </td>
+                                <td><a href="status-info.php"><i class="fa fa-question-circle-o fa" style="font-size: 20px; color: #111111;"></a></td>
                             </tr>
                         </div>
                         <div class="form-group">
@@ -65,68 +70,51 @@
                                 <td>
                                     <select class="form-control" name="room_type">
                                         <?php 
-                                            $host       = 'localhost';
-                                            $user       = 'root';
-                                            $pass       = '';
-                                            $database   = 'hotel';
-
-                                            $koneksi    = mysql_connect($host,$user,$pass);
-                                            mysql_select_db($database);
-
-                                            $sql        = "SELECT id_jenis_kamar, nama FROM jenis_kamar";
-
-                                            $hasil_query= mysql_query($sql);
-
                                             while ($baris=mysql_fetch_row($hasil_query)) {
                                                 echo "<option value='$baris[0]'>$baris[1]</option>";
                                             }
                                         ?>
                                 </td>
-                                <td><a href="room.php"><i class="fa fa-question fa" style="font-size: 13px; color: #111111;"></a></td>
+                                <td><a href="room.php"><i class="fa fa-question-circle-o fa" style="font-size: 20px; color: #111111;"></a></td>
                             </tr>
                         </table>
                     </div>
                 </div>
                 <div class="col-md-6 wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="600ms">
-                    <div class="text-center">
+                    <div class="text-center">        
                         <h2>Customer Data</h2>
-                    </div> 
+                    </div>
                     <div class="form-group col-md-12 col-md-offset-1">
                         <table>
                             <tr>
-                                <td><h5>Your Name </h5></td>
+                                <td><h5>Full Name </h5></td>
                                 <td><h5>:</h5></td>
-                                <td><input type="text" name="name" class="form-control" required></td>
+                                <td><h5><input type="text" name="name" class="form-control" required></h5></td>
                             </tr>
                     </div>
                         <div class="form-group col-md-12">
                             <tr>
-                                <td><h5>Your E-mail </h5></td>
+                                <td><h5>Email </h5></td>
                                 <td><h5>:</h5></td>
-                                <td><input type="email" name="email" class="form-control" required></td>
+                                <td><h5><input type="email" name="email" class="form-control" required></h5></td>
                             </tr>
                         </div>
-                        <div class="form-group col-md-12">
+                        <div class="form-group">
                             <tr>
-                                <td><h5>Your Phone </h5></td>
+                                <td><h5>Phone </h5></td>
                                 <td><h5>:</h5></td>
-                                <td><input type="text" name="phone" class="form-control" required></td>
+                                <td><h5><input type="text" name="phone" class="form-control" required></h5></td>
                             </tr>
                         </div>
-                        <div class="form-group col-md-12">
+                        <div class="form-group">
                             <tr>
-                                <td><h5>Your KTP </h5></td>
+                                <td><h5>KTP </h5></td>
                                 <td><h5>:</h5></td>
-                                <td><input type="file" name="ktp" class="form-control" accept="img/*"></td>
+                                <td><h5><input type="file" name="ktp" accept="img/*" required></h5></td>
                             </tr>
-                        </div>
-                        <div>
-                            <tr>
-                                <td></td>
-                                <td></td>
-                                <td><p>MAX SIZE : 500KB</p></td>
-                            </tr>
-                        </div>
+                        </table>
+                    </div>
+                </div>
                         </table>
                     </div>
                 </div>

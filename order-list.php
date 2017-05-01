@@ -1,8 +1,8 @@
 <?php
 	require_once(dirname(__FILE__).'/common/header-dashboard.php');
 	include "koneksi.php";
-	$query_order       = mysql_query("SELECT * FROM memesan")or die(mysql_error());
-    $query_customer    = mysql_query("SELECT * FROM pelanggan")or die(mysql_error());
+	$query_order       = mysql_query("SELECT * FROM pesanan")or die(mysql_error());    //Retrieve tada pesanan
+    $query_customer    = mysql_query("SELECT * FROM customer")or die(mysql_error());    //Retrieve data pelanggan
 	$nomor = 1;
 ?>
 
@@ -35,8 +35,8 @@
                     <table class="col-md-12 wow fadeInDown" border="1px">
                     	<tr bgcolor="#CCCCCC">
                     		<th><h5><b>No</b></h5></th>
-                    		<th><h5><b>Nama</b></h5></th>
-							<th><h5><b>Alamat</b></h5></th>
+                    		<th><h5><b>ID</b></h5></th>
+							<th><h5><b>Email</b></h5></th>
 							<th><h5><b>Telepon</b></h5></th>
                             <th><h5><b>Status</b></h5></th>
 							<th><h5><b>Check In</b></h5></th>
@@ -46,11 +46,18 @@
 						</tr>
                     <?php
 						while(($data_order = mysql_fetch_array($query_order)) && ($data_customer = mysql_fetch_array($query_customer))){
-					?>
+
+                            //----START DAY COUNT----//
+                            $start_date = new DateTime($data_order['check_in']);
+                            $end_date   = new DateTime($data_order['check_out']);
+                            $interval   = $start_date->diff($end_date);
+                            $count      = $interval->days;
+                            //----END DAY COUNT----//
+                    ?>
 						<tr>
 							<td align="center"><?php echo ("<h5>" . $nomor++ . "</h5>"); ?></td>
-							<td><?php echo ("<h5>" . $data_customer['nama'] . "</h5>"); ?></td>
-							<td><?php echo ("<h5>" . $data_customer['alamat'] . "</h5>") ?></td>
+							<td><?php echo ("<h5>" . $data_customer['name'] . "</h5>"); ?></td>
+							<td><?php echo ("<h5>" . $data_customer['email'] . "</h5>") ?></td>
                             <td><?php echo ("<h5>" . $data_customer['telepon'] . "</h5>") ?></td>
                             <td><?php echo ("<h5>" . $data_order['status'] . "</h5>") ?></td>
                             <td><?php echo ("<h5>" . $data_order['check_in'] . "</h5>") ?></td>

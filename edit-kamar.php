@@ -1,5 +1,10 @@
 <?php
 	require_once(dirname(__FILE__).'/common/header-dashboard.php');
+	include (dirname(__FILE__).'/common/koneksi.php');
+	$query_studio   = mysql_query("SELECT * FROM room WHERE room_type_id='1'")or die(mysql_error());
+	$query_superior = mysql_query("SELECT * FROM room WHERE room_type_id='2'")or die(mysql_error());
+	$query_deluxe	= mysql_query("SELECT * FROM room WHERE room_type_id='3'")or die(mysql_error());
+	$query_exe 		= mysql_query("SELECT * FROM room WHERE room_type_id='4'")or die(mysql_error());
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -8,7 +13,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>Room List</title>
+    <title>Manage Room</title>
 
     <link href="css/bootstrap.min.css" rel="stylesheet">
 	<link rel="stylesheet" href="css/font-awesome.min.css">
@@ -25,239 +30,126 @@
   	<div class="services">
 		<div class="container">
 			<div class="text-center">
-				<h2>ROOM </h2>			
+				<h2><i class="fa fa-cog fa" style="font-size: 40px; color: #111111;">&nbsp;</i>ROOM LIST</h2>
 				<div class="col-md-3 wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="300ms">
-					<img src="img/kamar-studio.jpg" style="width: 200px; height: 100px;">
 					<h3>STUDIO</h3>
 					<table align="center">
-						<form action="" method="POST">
-						<tr align="center">
-							<td><h5>Kamar 01</h5></td>
-							<td><select class="form-control" name="status" id="subject" >
-  								<option value="1">Terisi</option>
-  								<option value="0" selected>Kosong</option>
-							</select></td>
+						<form action="manage-process.php" method="POST">
+						<div class="form-group">
+					<?php while($studio = mysql_fetch_array($query_studio)){
+					?>
+						<tr>
+							<td><?php echo ("<h5>Kamar " . $studio['room_no'] . "</h5>"); ?></td>
+							<td>
+								<select class="form-control" name="keterangan_studio">
+								<?php 
+									if ($studio['keterangan']=='Terisi') {
+								?>
+									<option value="Terisi"><h5><?php echo($studio['keterangan']) ?></h5></option>
+									<option value="Kosong">Kosong</option>
+								<?php
+									}else{
+								?>
+									<option value="Kosong"><h5><?php echo($studio['keterangan']) ?></h5></option>
+									<option value="Terisi">Terisi</option>
+								<?php
+									}
+								?>
+							</td>
 						</tr>
-						<tr align="center">
-							<td><h5>Kamar 02</h5></td>
-							<td><select class="form-control" name="status" id="subject" >
-  								<option value="1">Terisi</option>
-  								<option value="0" selected>Kosong</option>
-							</select></td>
-						</tr>
-						<tr align="center">
-							<td><h5>Kamar 03</h5></td>
-							<td><select class="form-control" name="status" id="subject" >
-  								<option value="1">Terisi</option>
-  								<option value="0" selected>Kosong</option>
-							</select></td>
-						</tr>
-						<tr align="center">
-							<td><h5>Kamar 04</h5></td>
-							<td><select class="form-control" name="status" id="subject" >
-  								<option value="1">Terisi</option>
-  								<option value="0" selected>Kosong</option>
-							</select></td>
-						</tr>
+				  <?php } ?>
 					</table>
 				</div>
 				<div class="col-md-3 wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="600ms">
-					<img src="img/kamar-superior.jpg" style="width: 200px; height: 100px;">
 					<h3>SUPERIOR</h3>
 					<table align="center">
-						<tr align="center">
-							<td><h5>Kamar 05</h5></td>
-							<td><select class="form-control" name="status" id="subject" >
-  								<option value="1">Terisi</option>
-  								<option value="0" selected>Kosong</option>
-							</select></td>
+						<div class="form-group">
+					<?php while($superior = mysql_fetch_array($query_superior)){
+					?>
+						<tr>
+							<td><?php echo ("<h5>Kamar " . $superior['room_no'] . "</h5>"); ?></td>
+							<td>
+								<select class="form-control" name="keterangan_superior">
+								<?php 
+									if ($superior['keterangan']=='Terisi') {
+								?>
+									<option value="Terisi"><h5><?php echo($superior['keterangan']) ?></h5></option>
+									<option value="Kosong">Kosong</option>
+								<?php
+									}else{
+								?>
+									<option value="Kosong"><h5><?php echo($superior['keterangan']) ?></h5></option>
+									<option value="Terisi">Terisi</option>
+								<?php
+									}
+								?>
+							</td>
 						</tr>
-						<tr align="center">
-							<td><h5>Kamar 06</h5></td>
-							<td><select class="form-control" name="status" id="subject" >
-  								<option value="1">Terisi</option>
-  								<option value="0" selected>Kosong</option>
-							</select></td>
-						</tr>
-						<tr align="center">
-							<td><h5>Kamar 07</h5></td>
-							<td><select class="form-control" name="status" id="subject" >
-  								<option value="1">Terisi</option>
-  								<option value="0" selected>Kosong</option>
-							</select></td>
-						</tr>
-						<tr align="center">
-							<td><h5>Kamar 08</h5></td>
-							<td><select class="form-control" name="status" id="subject" >
-  								<option value="1">Terisi</option>
-  								<option value="0" selected>Kosong</option>
-							</select></td>
-						</tr>
-						<tr align="center">
-							<td><h5>Kamar 09</h5></td>
-							<td><select class="form-control" name="status" id="subject" >
-  								<option value="1">Terisi</option>
-  								<option value="0" selected>Kosong</option>
-							</select></td>
-						</tr>
-						<tr align="center">
-							<td><h5>Kamar 10</h5></td>
-							<td><select class="form-control" name="status" id="subject" >
-  								<option value="1">Terisi</option>
-  								<option value="0" selected>Kosong</option>
-							</select></td>
-						</tr>
-						<tr align="center">
-							<td><h5>Kamar 11</h5></td>
-							<td><select class="form-control" name="status" id="subject" >
-  								<option value="1">Terisi</option>
-  								<option value="0" selected>Kosong</option>
-							</select></td>
-						</tr>
-						<tr align="center">
-							<td><h5>Kamar 12</h5></td>
-							<td><select class="form-control" name="status" id="subject" >
-  								<option value="1">Terisi</option>
-  								<option value="0" selected>Kosong</option>
-							</select></td>
-						</tr>
+				  <?php } ?>
 					</table>
 				</div>
 				<div class="col-md-3 wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="900ms">
-					<img src="img/kamar-deluxe.jpg" style="width: 200px; height: 100px;">
 					<h3>DELUXE</h3>
 					<table align="center">
-						<tr align="center">
-							<td><h5>Kamar 13</h5></td>
-							<td><select class="form-control" name="status" id="subject" >
-  								<option value="1">Terisi</option>
-  								<option value="0" selected>Kosong</option>
-							</select></td>
+						<div class="form-group">
+					<?php while($deluxe = mysql_fetch_array($query_deluxe)){
+					?>
+						<tr>
+							<td><?php echo ("<h5>Kamar " . $deluxe['room_no'] . "</h5>"); ?></td>
+							<td>
+								<select class="form-control" name="keterangan_deluxe">
+								<?php 
+									if ($deluxe['keterangan']=='Terisi') {
+								?>
+									<option value="Terisi"><h5><?php echo($deluxe['keterangan']) ?></h5></option>
+									<option value="Kosong">Kosong</option>
+								<?php
+									}else{
+								?>
+									<option value="Kosong"><h5><?php echo($deluxe['keterangan']) ?></h5></option>
+									<option value="Terisi">Terisi</option>
+								<?php
+									}
+								?>
+							</td>
 						</tr>
-						<tr align="center">
-							<td><h5>Kamar 14</h5></td>
-							<td><select class="form-control" name="status" id="subject" >
-  								<option value="1">Terisi</option>
-  								<option value="0" selected>Kosong</option>
-							</select></td>
-						</tr>
-						<tr align="center">
-							<td><h5>Kamar 15</h5></td>
-							<td><select class="form-control" name="status" id="subject" >
-  								<option value="1">Terisi</option>
-  								<option value="0" selected>Kosong</option>
-							</select></td>
-						</tr>
-						<tr align="center">
-							<td><h5>Kamar 16</h5></td>
-							<td><select class="form-control" name="status" id="subject" >
-  								<option value="1">Terisi</option>
-  								<option value="0" selected>Kosong</option>
-							</select></td>
-						</tr>
-						<tr align="center">
-							<td><h5>Kamar 17</h5></td>
-							<td><select class="form-control" name="status" id="subject" >
-  								<option value="1">Terisi</option>
-  								<option value="0" selected>Kosong</option>
-							</select></td>
-						</tr>
-						<tr align="center">
-							<td><h5>Kamar 18</h5></td>
-							<td><select class="form-control" name="status" id="subject" >
-  								<option value="1">Terisi</option>
-  								<option value="0" selected>Kosong</option>
-							</select></td>
-						</tr>
-						<tr align="center">
-							<td><h5>Kamar 19</h5></td>
-							<td><select class="form-control" name="status" id="subject" >
-  								<option value="1">Terisi</option>
-  								<option value="0" selected>Kosong</option>
-							</select></td>
-						</tr>
-						<tr align="center">
-							<td><h5>Kamar 20</h5></td>
-							<td><select class="form-control" name="status" id="subject" >
-  								<option value="1">Terisi</option>
-  								<option value="0" selected>Kosong</option>
-							</select></td>
-						</tr>
-						<tr align="center">
-							<td><h5>Kamar 21</h5></td>
-							<td><select class="form-control" name="status" id="subject" >
-  								<option value="1">Terisi</option>
-  								<option value="0" selected>Kosong</option>
-							</select></td>
-						</tr>
-						<tr align="center">
-							<td><h5>Kamar 22</h5></td>
-							<td><select class="form-control" name="status" id="subject" >
-  								<option value="1">Terisi</option>
-  								<option value="0" selected>Kosong</option>
-							</select></td>
-						</tr>
-						<tr align="center">
-							<td><h5>Kamar 23</h5></td>
-							<td><select class="form-control" name="status" id="subject" >
-  								<option value="1">Terisi</option>
-  								<option value="0" selected>Kosong</option>
-							</select></td>
-						</tr>
-						<tr align="center">
-							<td><h5>Kamar 24</h5></td>
-							<td><select class="form-control" name="status" id="subject" >
-  								<option value="1">Terisi</option>
-  								<option value="0" selected>Kosong</option>
-							</select></td>
-						</tr>
-						<tr align="center">
-							<td><h5>Kamar 25</h5></td>
-							<td><select class="form-control" name="status" id="subject" >
-  								<option value="1">Terisi</option>
-  								<option value="0" selected>Kosong</option>
-							</select></td>
-						</tr>
-						<tr align="center">
-							<td><h5>Kamar 26</h5></td>
-							<td><select class="form-control" name="status" id="subject" >
-  								<option value="1">Terisi</option>
-  								<option value="0" selected>Kosong</option>
-							</select></td>
-						</tr>
+				  <?php } ?>
 						</table>
 				</div>
 				<div class="col-md-3 wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="1200ms">
-					<img src="img/kamar-executive.jpg" style="width: 200px; height: 100px;">	
 					<h3>EXECUTIVE</h3>
 					<table align="center">
-						<tr align="center">
-							<td><h5>Kamar 27</h5></td>
-							<td><select class="form-control" name="status" id="subject" >
-  								<option value="1">Terisi</option>
-  								<option value="0" selected>Kosong</option>
-							</select></td>
+						<div class="form-group">
+					<?php while($exe = mysql_fetch_array($query_exe)){
+					?>
+						<tr>
+							<td><?php echo ("<h5>Kamar " . $exe['room_no'] . "</h5>"); ?></td>
+							<td>
+								<select class="form-control" name="keterangan_exe">
+								<?php 
+									if ($exe['keterangan']=='Terisi') {
+								?>
+									<option value="Terisi"><h5><?php echo($exe['keterangan']) ?></h5></option>
+									<option value="Kosong">Kosong</option>
+								<?php
+									}else{
+								?>
+									<option value="Kosong"><h5><?php echo($exe['keterangan']) ?></h5></option>
+									<option value="Terisi">Terisi</option>
+								<?php
+									}
+								?>
+							</td>
+							<td
 						</tr>
-						<tr align="center">
-							<td><h5>Kamar 28</h5></td>
-							<td><select class="form-control" name="status" id="subject" >
-  								<option value="1">Terisi</option>
-  								<option value="0" selected>Kosong</option>
-							</select></td>
-						</tr>
+				  <?php } ?>
 					</table>
 				</div>
 			</div>
-
 		</div>
-					<div class="text-center">
-			<button type="submit" class="btn btn-primary btn-lg">Update</button>
-		</div>
-		<a href="dashboard.php" class="btn btn-primary btn-lg">Back</a>
+			<div class="text-center"><button type="submit" class="btn btn-primary btn-lg">Update</button></div>
 		</form>
 	</div>
 	<?php
 		require_once(dirname(__FILE__).'/common/footer.php');
 	?>
-</body>
-</html>
