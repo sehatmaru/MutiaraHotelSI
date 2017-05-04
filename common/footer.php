@@ -34,13 +34,10 @@
 				<div class="btn-gamp">
 					<a type="submit" class="btn btn-default">Subscribe</a>
 				</div>
-			
-		</div>  
+			</div>  
        </div>
-		
 	</div>	
 </footer>
-
 <div class="sub-footer">
 	<div class="container">
 		<div class="social-icon">
@@ -56,10 +53,9 @@
 			
 		<div class="col-md-4 col-md-offset-4">
 			<div class="copyright">
-				&copy; Day Theme. All Rights Reserved.
+				&copy; Mutiara Balige Hotel. All Rights Reserved.
                    <div class="credits">
                        Designed by <b>PA1-1617-D3TI03</b> | <a href="http://del.ac.id">www.del.ac.id</a>
-                       <a href="https://bootstrapmade.com">www.bootstrapmade.com</a>
                    </div>
 			</div>
 		</div>						

@@ -1,8 +1,8 @@
 <?php
-	require_once(dirname(__FILE__).'/common/header-manager.php');
-	include "koneksi.php";
+	require_once(dirname(__FILE__).'/common/header-dashboard.php');
+	include (dirname(__FILE__).'/common/koneksi.php');
 	$query_mysql = mysql_query("SELECT * FROM feedback")or die(mysql_error());
-	$nomor = 1;
+    $nomor = 1;
 ?>
 
 <!DOCTYPE html>
@@ -33,26 +33,24 @@
                 <div class="col-md-12 wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="300ms">
                     <table class="col-md-12 wow fadeInDown" border="1px">
                     	<tr bgcolor="#CCCCCC">
-                    		<th><h5><b>No</b></h5></th>
-                    		<th><h5><b>Nama</b></h5></th>
-							<th><h5><b>Rate</b></h5></th>
+                    		<th width="10px"><h5><b>No</b></h5></th>
+                    		<th width="350px"><h5><b>Nama</b></h5></th>
+							<th width="10px"><h5><b>Rate</b></h5></th>
 							<th><h5><b>Komentar</b></h5></th>
 						</tr>
                     <?php
 						while($data = mysql_fetch_array($query_mysql)){
 					?>
-
 						<tr>
-							<td align="center"><?php echo ("<h5>" . $nomor++ . "</h5>"); ?></td>
-							<td><?php echo ("<h5>" . $data['nama'] . "</h5>"); ?></td>
-							<td align="center"><?php echo ("<h5>" . $data['rate'] . "</h5>") ?></td>
-							<td><?php echo ("<h5>" . $data['komentar'] . "</h5>") ?></td>
+							<td width="10px" align="center"><?php echo ("<h5>" . $nomor++ . "</h5>"); ?></td>
+							<td width="10px" align="center"><?php echo ("<h5>" . $data['name'] . "</h5>"); ?></td>
+							<td width="10px" align="center"><?php echo ("<h5>" . $data['rate'] . "</h5>") ?></td>
+							<td width="700px" align="center"><?php echo ("<h5>" . $data['comment'] . "</h5>") ?></td>
 						</tr>
 				  <?php } ?>
 				  	</table>
                 </div>
             </div>
-            <a href="dashboard.php" class="btn btn-primary btn-lg">Back</a>
         </div>
     </div>
 <?php

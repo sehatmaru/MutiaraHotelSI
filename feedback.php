@@ -8,7 +8,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>Give us Feedback !</title>
+    <title>Give Feedback</title>
 
     <link href="css/bootstrap.min.css" rel="stylesheet">
 	<link rel="stylesheet" href="css/font-awesome.min.css">
@@ -53,7 +53,7 @@
         function addRating(obj) {
             $('li').each(function(index) {
                 $(this).addClass('selected');
-                $('#rating').val((index+1));
+                $('#rate').val((index+1));
                 if(index == $("li").index(obj)) {
                     return false;   
                 }
@@ -61,10 +61,10 @@
         }
 
         function resetRating() {
-            if($("#rating").val()) {
+            if($("#rate").val()) {
                 $('li').each(function(index) {
                     $(this).addClass('selected');
-                    if((index+1) == $("#rating").val()) {
+                    if((index+1) == $("#rate").val()) {
                         return false;   
                     }
                 });
@@ -76,19 +76,18 @@
 	<section class="contact-page">
         <div class="container wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="300ms">
             <div class="text-center">        
-                <h2>Give us Feedback !</h2>
+                <h2>Give Feedback</h2>
                 <p>Give us an feedback to improve our Hotel services.</p>
             </div> 
             <div class="row contact-wrap"> 
-                <div class="col-md-6 col-md-offset-3">
-                    <div id="errormessage"></div>
+                <div class="form-group col-md-6 col-md-offset-3">
                     <form action="feedback-process.php" method="post" role="form" class="contactForm">
                     <table>
                         <tr>
                             <td><h5><b>Full Name</b></h5></td>
                             <td><h5><b> : </b></h5></td>
                             <td>
-                                <input type="text" name="nama" class="form-control" size="58" required>
+                                <input type="text" name="name" class="form-control" size="58" required>
                             </td>
                         </tr>
                         <tr>
@@ -109,7 +108,7 @@
                             <td><h5><b>Rate</b></h5></td>
                             <td><h5><b> : </b></h5></td>
                             <td>
-                                <input type="hidden" name="rating" id="rating" required="text">
+                                <input type="hidden" name="rate" id="rate" required="text">
                                 <ul onMouseOut="resetRating();">
                                   <li class="star" onmouseover="highlightStar(this);" onmouseout="removeHighlight();" onClick="addRating(this);">&#9733;</li>
                                   <li class="star" onmouseover="highlightStar(this);" onmouseout="removeHighlight();" onClick="addRating(this);">&#9733;</li>
@@ -120,10 +119,10 @@
                             </td>
                         </tr>
                         <tr>
-                            <td><h5><b>Feedback</b></h5></td>
+                            <td><h5><b>Comment</b></h5></td>
                             <td><h5><b> : </b></h5></td>
                             <td>
-                                <textarea class="form-control" name="feedback"></textarea>
+                                <textarea class="form-control" name="comment"></textarea>
                             </td>
                         </tr>
                         </div>

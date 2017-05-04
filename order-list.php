@@ -1,9 +1,8 @@
 <?php
 	require_once(dirname(__FILE__).'/common/header-dashboard.php');
-	include "koneksi.php";
-	$query_order       = mysql_query("SELECT * FROM pesanan")or die(mysql_error());    //Retrieve tada pesanan
-    $query_customer    = mysql_query("SELECT * FROM customer")or die(mysql_error());    //Retrieve data pelanggan
-	$nomor = 1;
+	include (dirname(__FILE__).'/common/koneksi.php');
+	$query_order       = mysql_query("SELECT * FROM orders")or die(mysql_error());    //Retrieve orders data
+    $query_customer    = mysql_query("SELECT * FROM customer")or die(mysql_error());    //Retrieve customer data
 ?>
 
 <!DOCTYPE html>
@@ -19,7 +18,7 @@
     <link rel="stylesheet" href="css/font-awesome.min.css">
     <link rel="stylesheet" href="css/animate.css">
     <link href="css/animate.min.css" rel="stylesheet"> 
-    <link href="css/style.css" rel="stylesheet" /> 
+    <link href="css/style.css" rel="stylesheet">
 
     <script src="js/jquery.js"></script>        
     <script src="js/bootstrap.min.js"></script> 
@@ -34,36 +33,31 @@
                 <div class="col-md-12 wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="300ms">
                     <table class="col-md-12 wow fadeInDown" border="1px">
                     	<tr bgcolor="#CCCCCC">
-                    		<th><h5><b>No</b></h5></th>
-                    		<th><h5><b>ID</b></h5></th>
+                    		<th><h5><b>Order ID</b></h5></th>
 							<th><h5><b>Email</b></h5></th>
-							<th><h5><b>Telepon</b></h5></th>
+							<th><h5><b>Phone</b></h5></th>
                             <th><h5><b>Status</b></h5></th>
 							<th><h5><b>Check In</b></h5></th>
 							<th><h5><b>Check Out</b></h5></th>
-                            <th><h5><b>Tipe Kamar</b></h5></th>
-                            <th><h5><b>KTP</b></h5></th>
+                            <th><h5><b>Room No</b></h5></th>
+                            <th><h5><b>Action</b></h5></th>
 						</tr>
                     <?php
 						while(($data_order = mysql_fetch_array($query_order)) && ($data_customer = mysql_fetch_array($query_customer))){
-
-                            //----START DAY COUNT----//
-                            $start_date = new DateTime($data_order['check_in']);
-                            $end_date   = new DateTime($data_order['check_out']);
-                            $interval   = $start_date->diff($end_date);
-                            $count      = $interval->days;
-                            //----END DAY COUNT----//
                     ?>
 						<tr>
-							<td align="center"><?php echo ("<h5>" . $nomor++ . "</h5>"); ?></td>
-							<td><?php echo ("<h5>" . $data_customer['name'] . "</h5>"); ?></td>
+							<td align="center"><?php echo ("<h5>" . $data_order['orders_id'] . "</h5>"); ?></td>
 							<td><?php echo ("<h5>" . $data_customer['email'] . "</h5>") ?></td>
-                            <td><?php echo ("<h5>" . $data_customer['telepon'] . "</h5>") ?></td>
+                            <td><?php echo ("<h5>" . $data_customer['phone'] . "</h5>") ?></td>
                             <td><?php echo ("<h5>" . $data_order['status'] . "</h5>") ?></td>
-                            <td><?php echo ("<h5>" . $data_order['check_in'] . "</h5>") ?></td>
-                            <td><?php echo ("<h5>" . $data_order['check_out'] . "</h5>") ?></td>
-                            <td><?php echo ("<h5>" . $data_order['room_type'] . "</h5>") ?></td>
-                            <td><?php echo ("<img src='" . $data_customer['ktp'] . "' alt='KTP' style='width: 350px; height: 210px; padding: 10px;'>") ?></td>
+                            <td align="center"><?php echo ("<h5>" . $data_order['check_in'] . "</h5>") ?></td>
+                            <td align="center"><?php echo ("<h5>" . $data_order['check_out'] . "</h5>") ?></td>
+                            <td align="center"><?php echo ("<h5>" . $data_order['room_no'] . "</h5>") ?></td>
+                            <td align="center" width="220px"><?php echo '<a class="btn btn-primary" href="payment-verification.php?id='.$data_order['orders_id'].'">Check In</a>' ?>
+                                <?php echo ' ';
+                                      echo '<a class="btn btn-primary" href="hapus.php?id='.$data_order['orders_id'].'">Check Out</a>';
+                                ?>
+                            </td>
 						</tr>
 				  <?php } ?>
 				  	</table>

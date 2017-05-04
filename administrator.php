@@ -1,5 +1,5 @@
 <?php
-    require_once(dirname(__FILE__).'/common/header-manager.php');
+    require_once(dirname(__FILE__).'/common/header-dashboard.php');
 ?>
 
 <!DOCTYPE html>
@@ -26,7 +26,7 @@
     <div class="services">
         <div class="container">
             <div class="text-center">
-                <h2>Welcome, Administrator !</h2>           
+                <h2>Welcome, Administrator !</h2>
                 <div class="col-md-4 wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="300ms">
                     <a href="order-list.php"><i class="fa fa-inbox"></i>
                     <h3>Order List</h3></a>

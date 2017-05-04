@@ -1,14 +1,14 @@
 <?php
 	if(isset($_POST['submit'])){
-		include('koneksi.php');
+		include(dirname(__FILE__).'/common/koneksi.php');
 		
-		$nama		= $_POST['nama'];
+		$name		= $_POST['name'];
 		$email		= $_POST['email'];
 		$phone		= $_POST['phone'];
-		$rating		= $_POST['rating'];
-		$feedback	= $_POST['feedback'];
+		$rate		= $_POST['rate'];
+		$comment	= $_POST['comment'];
 		
-		$query = mysql_query("INSERT INTO feedback VALUES(NULL, '$nama', '$email', '$phone', '$rating', '$feedback')") or die(mysql_error());
+		$query = mysql_query("INSERT INTO feedback VALUES(NULL, '$name', '$email', '$phone', '$rate', '$comment')") or die(mysql_error());
 		
 		if($query){
 				require_once(dirname(__FILE__).'/common/header.php');
@@ -40,7 +40,26 @@
 					            <div class="text-center">        
 					                <h2>Thank You for Your Submission !</h2>
 					                <p>We will improve our Hotel services with your feedback.</p>
-					            </div> 
+					            </div>
+					            <div class="text-center">        
+                                    <table align="center">
+                                        <tr>
+                                            <td><h5><b>Name</b></h5></td>
+                                            <td><h5><b> : </b></h5></td>
+                                            <td><h5><b><?php echo($name) ?></b></h5></td>
+                                        </tr>
+                                        <tr>
+                                            <td><h5><b>Rate</b></h5></td>
+                                            <td><h5><b> : </b></h5></td>
+                                            <td><h5><b><?php echo($rate) ?></b></h5></td>
+                                        </tr>
+                                        <tr>
+                                            <td><h5><b>Comment</b></h5></td>
+                                            <td><h5><b> : </b></h5></td>
+                                            <td width="300px"><h5><b><?php echo($comment) ?></b></h5></td>
+                                        </tr>
+                                    </table>
+                                </div>
 					        </div>
 					    </section>    
 					</body>

@@ -13,7 +13,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>Room Reservation</title>
+    <title>Update Order</title>
 
     <link href="css/bootstrap.min.css" rel="stylesheet">
 	<link rel="stylesheet" href="css/font-awesome.min.css">
@@ -40,7 +40,7 @@
                             <tr>
                                 <td><h5>Check In </h5></td>
                                 <td><h5>:</h5></td>
-                                <td><h5><input type="date" name="check_in" class="form-control"  required></h5></td>
+                                <td colspan="2"><h5><input type="date" name="check_in" class="form-control" size="20" required></h5></td>
                             </tr>
                     </div>
                         <div class="form-group col-md-12">
@@ -58,9 +58,9 @@
                                     <select class="form-control" name="status">
                                         <option value="Corporate" id="Corporate">Corporate</option>
                                         <option selected="Non-Corporate" value="Non-Corporate" id="Non-Corporate">Non-Corporate</option>
-                                    </select>
+                                    </select>   
                                 </td>
-                                <td><a href="status.php"><i class="fa fa-question-circle-o fa" style="font-size: 20px; color: #111111;"></a></td>
+                                <td><a href="status-info.php"><i class="fa fa-question-circle-o fa" style="font-size: 20px; color: #111111;"></a></td>
                             </tr>
                         </div>
                         <div class="form-group">

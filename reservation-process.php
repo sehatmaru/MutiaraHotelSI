@@ -11,7 +11,93 @@
         $email          = $_POST['email'];
         $phone          = $_POST['phone'];
 
-        //----START UPLOAD FILE----//
+        $current_select_customer    = mysql_query("SELECT * FROM customer WHERE name='$name'") or die(mysql_error());  //Retrieve data customer
+        $current_data_customer = mysql_fetch_array($current_select_customer);
+        $current_custumer_id  = $current_data_customer['customer_id'];
+        $current_select_order    = mysql_query("SELECT * FROM orders WHERE orders_id='$current_custumer_id'");
+        $current_data_order = mysql_fetch_array($current_select_order);
+
+        if ($name==$current_data_customer['name']) {
+            require_once(dirname(__FILE__).'/common/header.php');
+        ?>
+            <!DOCTYPE html>
+                <html lang="en">
+                                <head>
+                    <meta charset="utf-8">
+                    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+                    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+                    <title>Warning !</title>
+
+                    <link href="css/bootstrap.min.css" rel="stylesheet">
+                    <link rel="stylesheet" href="css/font-awesome.min.css">
+                    <link rel="stylesheet" href="css/animate.css">
+                    <link href="css/animate.min.css" rel="stylesheet"> 
+                    <link href="css/style.css" rel="stylesheet" />
+
+                    <script src="js/jquery.js"></script>        
+                    <script src="js/bootstrap.min.js"></script> 
+                    <script src="https://maps.google.com/maps/api/js?sensor=true"></script>
+                    <script src="js/wow.min.js"></script>
+                    <script>wow = new WOW({}).init();</script>  
+                </head>
+                <body>  
+                    <section class="contact-page">
+                        <div class="container">
+                            <div class="text-center">
+                                <h2>Order will not sent</h2>
+                                <p>You have been sent your order before</p>
+                            </div>
+                            <div class="text-center"> 
+                                <table class="form-group" align="center">
+                                    <tr>
+                                        <td bgcolor="#CCCCCC"><h5><b>Costumer Name</b></h5></td>
+                                        <td bgcolor="#F9F9F9"><h5><b><?php echo($current_data_customer['name']) ?></b></h5></td>
+                                    </tr>
+                                    <tr>
+                                        <td bgcolor="#CCCCCC"><h5><b>Order ID</b></h5></td>
+                                        <td style="background-color: #F9F9F9; color: red; font-size: 14px;"><b><?php echo($current_data_order['orders_id']) ?></b></td>
+                                    </tr>
+                                    <tr>
+                                        <td bgcolor="#CCCCCC"><h5><b>Check In</b></h5></td>
+                                        <td bgcolor="#F9F9F9"><h5><b><?php echo($current_data_order['check_in']); ?></b></h5></td>
+                                    </tr>
+                                    <tr>
+                                        <td bgcolor="#CCCCCC"><h5><b>Check In</b></h5></td>
+                                        <td bgcolor="#F9F9F9"><h5><b><?php echo($current_data_order['check_out']); ?></b></h5></td>
+                                    </tr>
+                                    <tr>
+                                        <td bgcolor="#CCCCCC"><h5><b>Payment</b></h5></td>
+                                        <td bgcolor="#F9F9F9"><h5><b>Rp <?php echo($current_data_order['payment']) ?></b></h5></td>
+                                    </tr>
+                                </table>
+                            </div>
+                            <div class="text-center">
+                            <h3>Please pay your order to this Bank Account :</h3>
+                            <table align="center">
+                                <tr>
+                                    <td bgcolor="#CCCCCC"><h5><b>A/N</b></h5></td>
+                                    <td bgcolor="#F9F9F9"><h5><b>Mutiara Balige Hotel</b></h5></td>
+                                </tr>
+                                <tr>
+                                    <td bgcolor="#CCCCCC"><h5><b>Bank Account</b></h5></td>
+                                    <td style="background-color: #F9F9F9; color: red; font-size: 14px;"><b>434955935</b></td>
+                                </tr>
+                                <tr>
+                                    <td bgcolor="#CCCCCC"><h5><b>Bank Type</b></h5></td>
+                                    <td bgcolor="#F9F9F9"><h5><b>BNI</b></h5></td>
+                                </tr>
+                            </table><br>
+                            <h4><b>NOTE </b>Not order before ? Plese contact us for more information</h4>
+                        </div>
+                    </div>
+                </section>    
+            </body>
+            </html>
+            <?php
+                require_once(dirname(__FILE__).'/common/footer.php');
+        }else{
+            //----START UPLOAD FILE----//
         if ($_FILES['ktp']['name']) {
             move_uploaded_file($_FILES['ktp']['tmp_name'], 'ktp/' . $name . '.jpg');
             $ktp = 'ktp/' . $name . '.jpg';
@@ -29,8 +115,9 @@
 
         //----START RETRIEVE CUSTOMER ID----//
         $query_select_customer    = mysql_query("SELECT * FROM customer WHERE phone='$phone'") or die(mysql_error());  //Retrieve data customer
-        $data_customer  = mysql_fetch_array($query_select_customer);
+        $data_customer = mysql_fetch_array($query_select_customer);
         $customer_id    = $data_customer['customer_id'];    //Retrieve customer_id
+        $customer_name  = $data_customer['name'];
         //----END RETRIEVE CUSTOMER ID----//
 
         //----START RETRIEVE ROOM NO----//
@@ -55,7 +142,7 @@
         $order_id       = $data_order['orders_id'];
         //----END RETRIEVE ORDER ID----//s
 
-        if($query_order && $query_customer){
+            if($query_order && $query_customer){
                 require_once(dirname(__FILE__).'/common/header.php');
             ?>
             <!DOCTYPE html>
@@ -131,6 +218,7 @@
                                             <td><h5><b>BNI</b></h5></td>
                                         </tr>
                                     </table>
+                                    <a class="btn btn-primary btn-lg" href="payment-verification.php">Verify Payment</a>
                                 </div>
                             </div>
                         </section>    
@@ -175,6 +263,7 @@
             </html>
     <?php
         require_once(dirname(__FILE__).'/common/footer.php');
+    }
         }
     }else{
         echo '<script>window.history.back()</script>';

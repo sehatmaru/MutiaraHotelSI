@@ -36,10 +36,10 @@
 					</div>
 					<div class="contact-info">
 						<ul>
-							<li><i class="fa fa-check-circle-o fa" style="font-size: 13px; color: #111111;">&nbsp;&nbsp;&nbsp;&nbsp;<b style="padding-bottom: 5px; color: #aaa; font-family:'Open Sans', Arial, sans-serif; font-size: 12px;">Makanan & Minuman Ringan</b></i></li>
+							<li><i class="fa fa-check-circle-o fa" style="font-size: 13px; color: #111111;">&nbsp;&nbsp;&nbsp;&nbsp;<b style="padding-bottom: 5px; color: #aaa; font-family:'Open Sans', Arial, sans-serif; font-size: 12px;">Various Snacks and Soft Drinks</b></i></li>
 							<li><i class="fa fa-check-circle-o fa" style="font-size: 13px; color: #111111;">&nbsp;&nbsp;&nbsp;&nbsp;<b style="padding-bottom: 5px; color: #aaa; font-family:'Open Sans', Arial, sans-serif; font-size: 12px;">Toiletries</b></i></li>
-							<li><i class="fa fa-check-circle-o fa" style="font-size: 13px; color: #111111;">&nbsp;&nbsp;&nbsp;&nbsp;<b style="padding-bottom: 5px; color: #aaa; font-family:'Open Sans', Arial, sans-serif; font-size: 12px;">Alat-alat Tulis</b></i></li>
-							<li><i class="fa fa-check-circle-o fa" style="font-size: 13px; color: #111111;">&nbsp;&nbsp;&nbsp;&nbsp;<b style="padding-bottom: 5px; color: #aaa; font-family:'Open Sans', Arial, sans-serif; font-size: 12px;">Obat</b></i></li>
+							<li><i class="fa fa-check-circle-o fa" style="font-size: 13px; color: #111111;">&nbsp;&nbsp;&nbsp;&nbsp;<b style="padding-bottom: 5px; color: #aaa; font-family:'Open Sans', Arial, sans-serif; font-size: 12px;">Stationary</b></i></li>
+							<li><i class="fa fa-check-circle-o fa" style="font-size: 13px; color: #111111;">&nbsp;&nbsp;&nbsp;&nbsp;<b style="padding-bottom: 5px; color: #aaa; font-family:'Open Sans', Arial, sans-serif; font-size: 12px;">Medicine</b></i></li>
 						</ul>
 					</div>
 				</div>
@@ -50,7 +50,7 @@
 					</div>
 					<div class="contact-info">
 						<ul>
-							<li><i class="fa fa-check-circle-o fa" style="font-size: 13px; color: #111111;">&nbsp;&nbsp;&nbsp;&nbsp;<b style="padding-bottom: 5px; color: #aaa; font-family:'Open Sans', Arial, sans-serif; font-size: 12px;">Menerima pesanan Kopi & Teh Manis</b></i></li>
+							<li><i class="fa fa-check-circle-o fa" style="font-size: 13px; color: #111111;">&nbsp;&nbsp;&nbsp;&nbsp;<b style="padding-bottom: 5px; color: #aaa; font-family:'Open Sans', Arial, sans-serif; font-size: 12px;">Coffee and Tea Order 24 hours</b></i></li>
 						</ul>
 					</div>
 				</div>
@@ -61,9 +61,9 @@
 					</div>
 					<div class="contact-info">
 						<ul>
-							<li><i class="fa fa-check-circle-o fa" style="font-size: 13px; color: #111111;">&nbsp;&nbsp;&nbsp;&nbsp;<b style="padding-bottom: 5px; color: #aaa; font-family:'Open Sans', Arial, sans-serif; font-size: 12px;">Buku-buku Theologia</b></i></li>
-							<li><i class="fa fa-check-circle-o fa" style="font-size: 13px; color: #111111;">&nbsp;&nbsp;&nbsp;&nbsp;<b style="padding-bottom: 5px; color: #aaa; font-family:'Open Sans', Arial, sans-serif; font-size: 12px;">Buku-buku Umum</b></i></li>
-							<li><i class="fa fa-check-circle-o fa" style="font-size: 13px; color: #111111;">&nbsp;&nbsp;&nbsp;&nbsp;<b style="padding-bottom: 5px; color: #aaa; font-family:'Open Sans', Arial, sans-serif; font-size: 12px;">Ilmu Pengetahuan</b></i></li>
+							<li><i class="fa fa-check-circle-o fa" style="font-size: 13px; color: #111111;">&nbsp;&nbsp;&nbsp;&nbsp;<b style="padding-bottom: 5px; color: #aaa; font-family:'Open Sans', Arial, sans-serif; font-size: 12px;">Theological Books</b></i></li>
+							<li><i class="fa fa-check-circle-o fa" style="font-size: 13px; color: #111111;">&nbsp;&nbsp;&nbsp;&nbsp;<b style="padding-bottom: 5px; color: #aaa; font-family:'Open Sans', Arial, sans-serif; font-size: 12px;">General Books</b></i></li>
+							<li><i class="fa fa-check-circle-o fa" style="font-size: 13px; color: #111111;">&nbsp;&nbsp;&nbsp;&nbsp;<b style="padding-bottom: 5px; color: #aaa; font-family:'Open Sans', Arial, sans-serif; font-size: 12px;">Science Books</b></i></li>
 						</ul>
 					</div>
 				</div>
@@ -74,9 +74,7 @@
 					</div>
 					<div class="contact-info">
 						<ul>
-							<li><i class="fa fa-check-circle-o fa" style="font-size: 13px; color: #111111;">&nbsp;&nbsp;&nbsp;&nbsp;<b style="padding-bottom: 5px; color: #aaa; font-family:'Open Sans', Arial, sans-serif; font-size: 12px;">Buku-buku Theologia</b></i></li>
-							<li><i class="fa fa-check-circle-o fa" style="font-size: 13px; color: #111111;">&nbsp;&nbsp;&nbsp;&nbsp;<b style="padding-bottom: 5px; color: #aaa; font-family:'Open Sans', Arial, sans-serif; font-size: 12px;">Buku-buku Umum</b></i></li>
-							<li><i class="fa fa-check-circle-o fa" style="font-size: 13px; color: #111111;">&nbsp;&nbsp;&nbsp;&nbsp;<b style="padding-bottom: 5px; color: #aaa; font-family:'Open Sans', Arial, sans-serif; font-size: 12px;">Ilmu Pengetahuan</b></i></li>
+							<li><i class="fa fa-check-circle-o fa" style="font-size: 13px; color: #111111;">&nbsp;&nbsp;&nbsp;&nbsp;<b style="padding-bottom: 5px; color: #aaa; font-family:'Open Sans', Arial, sans-serif; font-size: 12px;">Bycicle Rental 24 hours</b></i></li>
 						</ul>
 					</div>
 				</div>

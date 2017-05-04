@@ -1,5 +1,5 @@
 <?php
-    require_once(dirname(__FILE__).'/common/header-manager.php');
+    require_once(dirname(__FILE__).'/common/header-dashboard.php');
 ?>
 
 <!DOCTYPE html>
@@ -36,7 +36,7 @@
                     <h3>Room Editor</h3></a>
                 </div>
                 <div class="col-md-3 wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="900ms">
-                    <a href="verification.php"><i class="fa fa-check-circle-o"></i>  
+                    <a href="verification-list.php"><i class="fa fa-check-circle-o"></i>  
                     <h3>Payment Verification</h3></a>
                 </div>
                 <div class="col-md-3 wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="1200ms">

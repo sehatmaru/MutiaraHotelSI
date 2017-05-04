@@ -37,11 +37,13 @@
 						<form action="manage-process.php" method="POST">
 						<div class="form-group">
 					<?php while($studio = mysql_fetch_array($query_studio)){
+						$studio_no = 0;
+						$studio_no++;
 					?>
 						<tr>
 							<td><?php echo ("<h5>Kamar " . $studio['room_no'] . "</h5>"); ?></td>
 							<td>
-								<select class="form-control" name="keterangan_studio">
+								<select class="form-control" name="studio">
 								<?php 
 									if ($studio['keterangan']=='Terisi') {
 								?>
@@ -65,11 +67,13 @@
 					<table align="center">
 						<div class="form-group">
 					<?php while($superior = mysql_fetch_array($query_superior)){
+						$superior_no = 0;
+						$superior_no++;
 					?>
 						<tr>
 							<td><?php echo ("<h5>Kamar " . $superior['room_no'] . "</h5>"); ?></td>
 							<td>
-								<select class="form-control" name="keterangan_superior">
+								<select class="form-control" name="<?php $superior_no ?>">
 								<?php 
 									if ($superior['keterangan']=='Terisi') {
 								?>
@@ -93,11 +97,13 @@
 					<table align="center">
 						<div class="form-group">
 					<?php while($deluxe = mysql_fetch_array($query_deluxe)){
+						$deluxe_no = 0;
+						$deluxe_no++;
 					?>
 						<tr>
 							<td><?php echo ("<h5>Kamar " . $deluxe['room_no'] . "</h5>"); ?></td>
 							<td>
-								<select class="form-control" name="keterangan_deluxe">
+								<select class="form-control" name="<?php $deluxe_no ?>">
 								<?php 
 									if ($deluxe['keterangan']=='Terisi') {
 								?>
@@ -121,11 +127,13 @@
 					<table align="center">
 						<div class="form-group">
 					<?php while($exe = mysql_fetch_array($query_exe)){
+						$exe_no	= 0;
+						$exe_no++;
 					?>
 						<tr>
 							<td><?php echo ("<h5>Kamar " . $exe['room_no'] . "</h5>"); ?></td>
 							<td>
-								<select class="form-control" name="keterangan_exe">
+								<select class="form-control" name="<?php $exe_no ?>">
 								<?php 
 									if ($exe['keterangan']=='Terisi') {
 								?>
@@ -147,7 +155,7 @@
 				</div>
 			</div>
 		</div>
-			<div class="text-center"><button type="submit" class="btn btn-primary btn-lg">Update</button></div>
+			<div class="text-center"><button type="submit" name="submit" class="btn btn-primary btn-lg" required>Update</button></div>
 		</form>
 	</div>
 	<?php

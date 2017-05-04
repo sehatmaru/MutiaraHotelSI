@@ -28,11 +28,10 @@
         <div class="container wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="300ms">
             <div class="text-center">        
                 <h2></h2>
-                <p>
-                   Mutiara Balige Hotel is conveniently located in the strategic and central area of ​​Balige, approximately 18 KM from the airport
-                   Close to important Institutions and Spot such as recreational parks, tourist sites, offices, banks, schools
-                   As well as business locations such as markets and shops.
-                   We offer lodging panoramic views of Lake Toba, hills and rice fields.
+                <p>Mutiara Balige Hotel berlokasi di area strategis dan pusat Balige, berjarak kurang lebih 18 KM dari bandara silangit 
+                   dekat dengan Institusi dan Spot penting seperti tentang taman rekreasi, tempat pariwisata, perkantoran, bank, sekolah 
+                   dan juga lokasi bisnis seperti pasar dan pertokoan.
+                   Kami menawarkan penginapan dengan panorama pemandangan alam Danau Toba, perbukitan dan persawahan.
                 </p>
             </div>
            <div class="col-md-8">
@@ -62,6 +61,14 @@
     </div> 
 </div>
 </div>
+<div class="footer_bg">
+    <div class="container">
+        <div class="row  footer">
+            <div class="copy text-center">
+                <p class="link"><span>&#169; All rights reserved | Design by&nbsp;<a href="http://w3layouts.com/"> W3Layouts</a></span></p>
+            </div>
+        </div>
+    </div>
     </section>    
 </body>
 </html>
