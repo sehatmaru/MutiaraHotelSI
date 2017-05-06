@@ -32,7 +32,7 @@
             <div class="row contact-wrap">
                 <div class="col-md-6 wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="300ms">
                     <form action="reservation-process.php" method="post" role="form" class="contactForm" enctype="multipart/form-data">
-                    <div class="text-center">        
+                    <div class="text-center">
                         <h2>Order Data</h2>
                     </div>
                     <div class="form-group col-md-12 col-md-offset-1">

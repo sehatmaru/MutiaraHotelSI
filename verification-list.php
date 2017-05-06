@@ -30,8 +30,8 @@
             <div class="text-center">
                 <h2>Payment Verification List</h2>           
                 <div class="col-md-12 wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="300ms">
-                    <table class="col-md-12 wow fadeInDown" border="1px">
-                    	<tr bgcolor="#CCCCCC">
+                    <table class="col-md-12 wow fadeInDown table">
+                    	<tr bgcolor="#F9F9F9">
                     		<th width="80px"><h5><b>Order ID</b></h5></th>
 							<th><h5><b>Room No</b></h5></th>
 							<th><h5><b>Amount</b></h5></th>
@@ -39,7 +39,7 @@
                             <th width="100px"><h5><b>Action</b></h5></th>
 						</tr>
                     <?php
-						while($data_payment = mysql_fetch_array($query_payment)){
+						while($data_payment=mysql_fetch_array($query_payment)){
                     ?>
 						<tr>
 							<td align="center"><?php echo ("<h5>" . $data_payment['orders_id'] . "</h5>"); ?></td>
@@ -48,7 +48,7 @@
                             <td><?php echo ("<h5>" . $data_payment['bukti'] . "</h5>") ?></td>
                             <td width="170px"><?php echo '<a class="btn btn-primary" href="verify.php?id='.$data_payment['orders_id'].'">Verify</a>' ?>
                                 <?php echo ' ';
-                                      echo '<a class="btn btn-primary" href="hapus.php?id='.$data_payment['orders_id'].'">Delete</a>';
+                                      echo '<a class="btn btn-primary" href="delete-payment.php?id='.$data_payment['orders_id'].'">Delete</a>';
                                 ?>
                             </td>
 						</tr>

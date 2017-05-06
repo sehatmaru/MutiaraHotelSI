@@ -49,43 +49,43 @@
                                 <p>You have been sent your order before</p>
                             </div>
                             <div class="text-center"> 
-                                <table class="form-group" align="center">
+                                <table class="table">
                                     <tr>
-                                        <td bgcolor="#CCCCCC"><h5><b>Costumer Name</b></h5></td>
-                                        <td bgcolor="#F9F9F9"><h5><b><?php echo($current_data_customer['name']) ?></b></h5></td>
+                                        <td bgcolor="#E3E3E3"><h5><b>Costumer Name</b></h5></td>
+                                        <td><h5><b><?php echo($current_data_customer['name']) ?></b></h5></td>
                                     </tr>
                                     <tr>
-                                        <td bgcolor="#CCCCCC"><h5><b>Order ID</b></h5></td>
-                                        <td style="background-color: #F9F9F9; color: red; font-size: 14px;"><b><?php echo($current_data_order['orders_id']) ?></b></td>
+                                        <td bgcolor="#E3E3E3"><h5><b>Order ID</b></h5></td>
+                                        <td style="color: red; font-size: 14px;"><b><?php echo($current_data_order['orders_id']) ?></b></td>
                                     </tr>
                                     <tr>
-                                        <td bgcolor="#CCCCCC"><h5><b>Check In</b></h5></td>
-                                        <td bgcolor="#F9F9F9"><h5><b><?php echo($current_data_order['check_in']); ?></b></h5></td>
+                                        <td bgcolor="#E3E3E3"><h5><b>Check In</b></h5></td>
+                                        <td><h5><b><?php echo($current_data_order['check_in']); ?></b></h5></td>
                                     </tr>
                                     <tr>
-                                        <td bgcolor="#CCCCCC"><h5><b>Check In</b></h5></td>
-                                        <td bgcolor="#F9F9F9"><h5><b><?php echo($current_data_order['check_out']); ?></b></h5></td>
+                                        <td bgcolor="#E3E3E3"><h5><b>Check In</b></h5></td>
+                                        <td><h5><b><?php echo($current_data_order['check_out']); ?></b></h5></td>
                                     </tr>
                                     <tr>
-                                        <td bgcolor="#CCCCCC"><h5><b>Payment</b></h5></td>
-                                        <td bgcolor="#F9F9F9"><h5><b>Rp <?php echo($current_data_order['payment']) ?></b></h5></td>
+                                        <td bgcolor="#E3E3E3"><h5><b>Payment</b></h5></td>
+                                        <td><h5><b>Rp <?php echo($current_data_order['payment']) ?></b></h5></td>
                                     </tr>
                                 </table>
                             </div>
                             <div class="text-center">
                             <h3>Please pay your order to this Bank Account :</h3>
-                            <table align="center">
+                            <table class="table">
                                 <tr>
-                                    <td bgcolor="#CCCCCC"><h5><b>A/N</b></h5></td>
-                                    <td bgcolor="#F9F9F9"><h5><b>Mutiara Balige Hotel</b></h5></td>
+                                    <td bgcolor="#E3E3E3"><h5><b>A/N</b></h5></td>
+                                    <td><h5><b>Mutiara Balige Hotel</b></h5></td>
                                 </tr>
                                 <tr>
-                                    <td bgcolor="#CCCCCC"><h5><b>Bank Account</b></h5></td>
-                                    <td style="background-color: #F9F9F9; color: red; font-size: 14px;"><b>434955935</b></td>
+                                    <td bgcolor="#E3E3E3"><h5><b>Bank Account</b></h5></td>
+                                    <td style="color: red; font-size: 14px;"><b>434955935</b></td>
                                 </tr>
                                 <tr>
-                                    <td bgcolor="#CCCCCC"><h5><b>Bank Type</b></h5></td>
-                                    <td bgcolor="#F9F9F9"><h5><b>BNI</b></h5></td>
+                                    <td bgcolor="#E3E3E3"><h5><b>Bank Type</b></h5></td>
+                                    <td><h5><b>BNI</b></h5></td>
                                 </tr>
                             </table><br>
                             <h4><b>NOTE </b>Not order before ? Plese contact us for more information</h4>
@@ -142,6 +142,7 @@
         $order_id       = $data_order['orders_id'];
         //----END RETRIEVE ORDER ID----//s
 
+        $query_room = "UPDATE room SET keterangan='Terisi' WHERE room_no='$room_no'";   //Insert keterangan data
             if($query_order && $query_customer){
                 require_once(dirname(__FILE__).'/common/header.php');
             ?>

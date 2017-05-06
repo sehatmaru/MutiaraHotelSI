@@ -31,8 +31,8 @@
             <div class="text-center">
                 <h2>Feedback List</h2>           
                 <div class="col-md-12 wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="300ms">
-                    <table class="col-md-12 wow fadeInDown" border="1px">
-                    	<tr bgcolor="#CCCCCC">
+                    <table class="col-md-12 wow fadeInDown table table-striped">
+                    	<tr>
                     		<th width="10px"><h5><b>No</b></h5></th>
                     		<th width="350px"><h5><b>Nama</b></h5></th>
 							<th width="10px"><h5><b>Rate</b></h5></th>

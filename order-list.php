@@ -31,8 +31,8 @@
             <div class="text-center">
                 <h2>Order List</h2>           
                 <div class="col-md-12 wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="300ms">
-                    <table class="col-md-12 wow fadeInDown" border="1px">
-                    	<tr bgcolor="#CCCCCC">
+                    <table class="col-md-12 wow fadeInDown table">
+                    	<tr bgcolor="#F9F9F9">
                     		<th><h5><b>Order ID</b></h5></th>
 							<th><h5><b>Email</b></h5></th>
 							<th><h5><b>Phone</b></h5></th>
@@ -47,13 +47,13 @@
                     ?>
 						<tr>
 							<td align="center"><?php echo ("<h5>" . $data_order['orders_id'] . "</h5>"); ?></td>
-							<td><?php echo ("<h5>" . $data_customer['email'] . "</h5>") ?></td>
-                            <td><?php echo ("<h5>" . $data_customer['phone'] . "</h5>") ?></td>
-                            <td><?php echo ("<h5>" . $data_order['status'] . "</h5>") ?></td>
+							<td align="center"><?php echo ("<h5>" . $data_customer['email'] . "</h5>") ?></td>
+                            <td align="center"><?php echo ("<h5>" . $data_customer['phone'] . "</h5>") ?></td>
+                            <td align="center"><?php echo ("<h5>" . $data_order['status'] . "</h5>") ?></td>
                             <td align="center"><?php echo ("<h5>" . $data_order['check_in'] . "</h5>") ?></td>
                             <td align="center"><?php echo ("<h5>" . $data_order['check_out'] . "</h5>") ?></td>
                             <td align="center"><?php echo ("<h5>" . $data_order['room_no'] . "</h5>") ?></td>
-                            <td align="center" width="220px"><?php echo '<a class="btn btn-primary" href="payment-verification.php?id='.$data_order['orders_id'].'">Check In</a>' ?>
+                            <td align="center" width="220px"><?php echo '<a class="btn btn-primary" href="check_in.php?id='.$data_order['orders_id'].'">Check In</a>' ?>
                                 <?php echo ' ';
                                       echo '<a class="btn btn-primary" href="hapus.php?id='.$data_order['orders_id'].'">Check Out</a>';
                                 ?>

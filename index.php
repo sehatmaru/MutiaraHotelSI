@@ -25,7 +25,6 @@
   	<div class="slider">		
 		<div id="about-slider">
 			<div id="carousel-slider" class="carousel slide" data-ride="carousel">
-				<!-- Indicators -->
 				<ol class="carousel-indicators visible-xs">
 					<li data-target="#carousel-slider" data-slide-to="0" class="active"></li>
 					<li data-target="#carousel-slider" data-slide-to="1"></li>
@@ -34,41 +33,41 @@
 
 				<div class="carousel-inner">
 					<div class="item active">						
-						<img src="img/front-2.jpg" class="img-responsive" alt=""> 
+						<img src="img/front-2.jpg" style="height: 75vh" alt=""> 
 						<div class="carousel-caption">
 							<div class="wow fadeInUp" data-wow-offset="0" data-wow-delay="0.3s">								
 								<h2><span>Mutiara Balige Hotel</span></h2>
 							</div>
 							<div class="col-md-10 col-md-offset-1">
 								<div class="wow fadeInUp" data-wow-offset="0" data-wow-delay="0.6s">								
-									<p>Text Here</p>
+									<p>Welcome to our Hotel Information System</p>
 								</div>
 							</div>
 						</div>
 				    </div>
 			
 				    <div class="item">
-						<img src="img/rooftop.jpg" class="img-responsive" alt=""> 
+						<img src="img/rooftop.jpg" style="height: 75vh" alt=""> 
 						<div class="carousel-caption">
 							<div class="wow fadeInUp" data-wow-offset="0" data-wow-delay="0.3s">								
-								<h2>Bring your happines</h2>
+								<h2>We are ready to serve you</h2>
 							</div>
 							<div class="col-md-10 col-md-offset-1">
 								<div class="wow fadeInUp" data-wow-offset="0" data-wow-delay="0.6s">								
-									<p>Lorem ipsum dolor sit amet consectetur adipisicing</p>
+									<p>What you see is what you get</p>
 								</div>
 							</div>
 						</div>
 				    </div> 
 				    <div class="item">
-						<img src="img/kamar-superior.jpg" class="img-responsive" alt=""> 
+						<img src="img/kamar-deluxe.jpg" style="height: 75vh" alt=""> 
 						<div class="carousel-caption">
 							<div class="wow fadeInUp" data-wow-offset="0" data-wow-delay="0.3s">								
 								<h2>Online Ordering</h2>
 							</div>
 							<div class="col-md-10 col-md-offset-1">
 								<div class="wow fadeInUp" data-wow-offset="0" data-wow-delay="0.6s">								
-									<p>Lorem ipsum dolor sit amet consectetur adipisicing</p>
+									<p>Enjoy our Online Reservation</p>
 								</div>
 							</div>
 						</div>
