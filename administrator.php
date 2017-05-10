@@ -32,7 +32,7 @@
                     <h3>Order List</h3></a>
                 </div>
                 <div class="col-md-4 wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="600ms">
-                    <a href="edit-kamar.php"><i class="fa fa-cog"></i>
+                    <a href="room-list.php"><i class="fa fa-cog"></i>
                     <h3>Room Editor</h3></a>
                 </div>
                 <div class="col-md-4 wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="1200ms">

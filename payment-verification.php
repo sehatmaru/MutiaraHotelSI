@@ -25,10 +25,10 @@
   <body>
 	<section class="contact-page">
         <div class="container wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="300ms">
-            <form action="verification-process.php" method="GET" role="form" class="contactForm" enctype="multipart/form-data">
+            <form action="payment-process.php" method="POST" role="form" class="contactForm" enctype="multipart/form-data">
             <div class="text-center">        
                 <h2>Payment Verification</h2>
-                <p>Please input your <b>order id</b> with right code.</p>
+                <p>Please input your <code>order id</code> with right code.</p>
             </div> 
             <div class="row contact-wrap"> 
                 <div class="form-group col-md-6 col-md-offset-3">
@@ -51,10 +51,10 @@
                         <tr>
                             <td><h5><b>Bukti</b></h5></td>
                             <td><h5><b> : </b></h5></td>
-                            <td><h5><input type="file" name="bukti" accept="img/*" required></h5></td>
+                            <td><h5><input type="file" name="ktp" accept="img/*" required></h5></td>
                         </tr>
                     </table>
-                     <div class="text-center"><button type="submit" name="verify" class="btn btn-primary btn-lg" required>Verify</button></div>
+                     <div class="text-center"><button type="submit" name="submit" class="btn btn-primary btn-lg" required>Verify</button></div>
                     </form>                     
                 </div>
             </div>

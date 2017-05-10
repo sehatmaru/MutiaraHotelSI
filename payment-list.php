@@ -2,6 +2,7 @@
 	require_once(dirname(__FILE__).'/common/header-dashboard.php');
 	include (dirname(__FILE__).'/common/koneksi.php');
 	$query_payment = mysql_query("SELECT * FROM payment")or die(mysql_error());    //Retrieve payment
+    $query_customer = mysql_query("SELECT * FROM customer")or die(mysql_error());
 ?>
 
 <!DOCTYPE html>
@@ -39,13 +40,13 @@
                             <th width="100px"><h5><b>Action</b></h5></th>
 						</tr>
                     <?php
-						while($data_payment=mysql_fetch_array($query_payment)){
+						while(($data_payment=mysql_fetch_array($query_payment)) && ($data_customer=mysql_fetch_array($query_customer))){
                     ?>
 						<tr>
 							<td align="center"><?php echo ("<h5>" . $data_payment['orders_id'] . "</h5>"); ?></td>
 							<td width="100px" align="center"><?php echo ("<h5>" . $data_payment['room_no'] . "</h5>") ?></td>
                             <td width="120px" align="center"><?php echo ("<h5>IDR " . $data_payment['amount'] . "</h5>") ?></td>
-                            <td><?php echo ("<h5>" . $data_payment['bukti'] . "</h5>") ?></td>
+                            <?php echo '<td><img src"' . $data_customer['ktp'] . '" style="width: 600px; height:300px;"></td>' ?>
                             <td width="170px"><?php echo '<a class="btn btn-primary" href="verify.php?id='.$data_payment['orders_id'].'">Verify</a>' ?>
                                 <?php echo ' ';
                                       echo '<a class="btn btn-primary" href="delete-payment.php?id='.$data_payment['orders_id'].'">Delete</a>';

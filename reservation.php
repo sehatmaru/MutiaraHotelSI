@@ -37,13 +37,14 @@
                     </div>
                     <div class="form-group col-md-12 col-md-offset-1">
                         <table>
+                        <div class="form-group">
                             <tr>
                                 <td><h5>Check In </h5></td>
                                 <td><h5>:</h5></td>
-                                <td><h5><input type="date" name="check_in" class="form-control"  required></h5></td>
+                                <td><h5><input type="date" name="check_in" class="form-control" style="width: 300px" required></h5></td>
                             </tr>
-                    </div>
-                        <div class="form-group col-md-12">
+                        </div>
+                        <div class="form-group">
                             <tr>
                                 <td><h5>Check Out </h5></td>
                                 <td><h5>:</h5></td>
@@ -60,7 +61,7 @@
                                         <option selected="Non-Corporate" value="Non-Corporate" id="Non-Corporate">Non-Corporate</option>
                                     </select>
                                 </td>
-                                <td><a href="status.php"><i class="fa fa-question-circle-o fa" style="font-size: 20px; color: #111111;"></a></td>
+                                <td><a href="status.php"><i class="fa fa-question-circle-o fa" style="font-size: 20px; color: #111111;"></i></a></td>
                             </tr>
                         </div>
                         <div class="form-group">
@@ -75,7 +76,7 @@
                                             }
                                         ?>
                                 </td>
-                                <td><a href="room.php"><i class="fa fa-question-circle-o fa" style="font-size: 20px; color: #111111;"></a></td>
+                                <td><a href="room.php"><i class="fa fa-question-circle-o fa" style="font-size: 20px; color: #111111;"></i></a></td>
                             </tr>
                         </table>
                     </div>

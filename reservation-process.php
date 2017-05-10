@@ -17,7 +17,7 @@
         $current_select_order    = mysql_query("SELECT * FROM orders WHERE orders_id='$current_custumer_id'");
         $current_data_order = mysql_fetch_array($current_select_order);
 
-        if ($name==$current_data_customer['name']) {
+        if (($name==$current_data_customer['name']) && ($phone==$current_data_customer['phone'])) {
             require_once(dirname(__FILE__).'/common/header.php');
         ?>
             <!DOCTYPE html>

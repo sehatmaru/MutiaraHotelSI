@@ -84,7 +84,7 @@
                     <form action="feedback-process.php" method="post" role="form" class="contactForm">
                     <table>
                         <tr>
-                            <td><h5><b>Full Name</b></h5></td>
+                            <td><h5><b>Name</b></h5></td>
                             <td><h5><b> : </b></h5></td>
                             <td>
                                 <input type="text" name="name" class="form-control" size="58" required>

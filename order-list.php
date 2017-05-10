@@ -34,12 +34,12 @@
                     <table class="col-md-12 wow fadeInDown table">
                     	<tr bgcolor="#F9F9F9">
                     		<th><h5><b>Order ID</b></h5></th>
-							<th><h5><b>Email</b></h5></th>
-							<th><h5><b>Phone</b></h5></th>
                             <th><h5><b>Status</b></h5></th>
 							<th><h5><b>Check In</b></h5></th>
 							<th><h5><b>Check Out</b></h5></th>
+                            <th><h5><b>Length of Stay</b></h5></th>
                             <th><h5><b>Room No</b></h5></th>
+                            <th><h5><b>Payment</b></h5></th>
                             <th><h5><b>Action</b></h5></th>
 						</tr>
                     <?php
@@ -47,15 +47,17 @@
                     ?>
 						<tr>
 							<td align="center"><?php echo ("<h5>" . $data_order['orders_id'] . "</h5>"); ?></td>
-							<td align="center"><?php echo ("<h5>" . $data_customer['email'] . "</h5>") ?></td>
-                            <td align="center"><?php echo ("<h5>" . $data_customer['phone'] . "</h5>") ?></td>
                             <td align="center"><?php echo ("<h5>" . $data_order['status'] . "</h5>") ?></td>
                             <td align="center"><?php echo ("<h5>" . $data_order['check_in'] . "</h5>") ?></td>
                             <td align="center"><?php echo ("<h5>" . $data_order['check_out'] . "</h5>") ?></td>
+                            <td align="center"><?php echo ("<h5>" . $data_order['length_of_stay'] . "</h5>") ?></td>
                             <td align="center"><?php echo ("<h5>" . $data_order['room_no'] . "</h5>") ?></td>
-                            <td align="center" width="220px"><?php echo '<a class="btn btn-primary" href="check_in.php?id='.$data_order['orders_id'].'">Check In</a>' ?>
+                            <td align="center"><?php echo ("<h5>" . $data_order['payment'] . "</h5>") ?></td>
+                            <td align="center" width="225px"><?php echo '<a class="btn btn-primary" href="check_in.php?id='.$data_order['orders_id'].'">Check In</a>' ?>
                                 <?php echo ' ';
-                                      echo '<a class="btn btn-primary" href="hapus.php?id='.$data_order['orders_id'].'">Check Out</a>';
+                                      echo '<a class="btn btn-primary" href="check_out.php?id='.$data_order['orders_id'].'">Check Out</a>';
+                                      echo ' ';
+                                      echo '<a class="btn btn-primary" href="delete-order.php?id='.$data_order['orders_id'].'">Delete</a>';
                                 ?>
                             </td>
 						</tr>
