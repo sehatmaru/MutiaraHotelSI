@@ -129,7 +129,12 @@
         //----START RETRIEVE PRICE----//
         $query_select_jenis_kamar    = mysql_query("SELECT * FROM room_type WHERE room_type_id='$room_type'") or die(mysql_error());   //Retrieve jenis_kamar data
         $data_jenis_kamar = mysql_fetch_array($query_select_jenis_kamar);
-        $data_harga = $data_jenis_kamar['price']; //Payment total
+        if ($status='Corporate') {
+            $diskon = $data_jenis_kamar['price']*((10)/(100));
+            $data_harga = $data_jenis_kamar['price']-$diskon;
+        }else{
+            $data_harga = $data_jenis_kamar['price'];
+        }
         //----END RETRIEVE PRICE----//
 
         $payment = number_format($length_of_stay*$data_harga);  //Payment total with currency format

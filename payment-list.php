@@ -3,6 +3,58 @@
 	include (dirname(__FILE__).'/common/koneksi.php');
 	$query_payment = mysql_query("SELECT * FROM payment")or die(mysql_error());    //Retrieve payment
     $query_customer = mysql_query("SELECT * FROM customer")or die(mysql_error());
+
+    $default_index = 0;
+    $default_batas = 10;
+
+    if(isset($_GET['batas'])){
+        $default_batas = $_GET['batas'];
+    }
+
+    if(isset($_GET['halaman'])){
+        $default_index = ($_GET['halaman']-1) * $default_batas;
+    }
+
+    $total_baris = mysql_num_rows(mysql_query("SELECT * FROM payment"));
+
+    $nomor_paging = 1;
+    $html_paging = "<ul class='pagination'>";
+    while($total_baris - $default_batas > 0){
+        $html_paging .= "<li><a href='?halaman=".$nomor_paging."&batas=".$default_batas."'>".$nomor_paging."</a></li>";
+        $nomor_paging++;
+        $total_baris -= $default_batas;
+    }
+
+    if($total_baris > 0){
+        $html_paging .= "<li><a href='?halaman=".$nomor_paging."&batas=".$default_batas."'>".$nomor_paging."</a></li>";
+    }
+
+    $html_paging .= "</ul>";
+
+    $output_html = "<table class='col-md-12 wow fadeInDown table table-bordered'>".
+                        "<tr bgcolor='#F9F9F9'>".
+                            "<th width='80px' align='center'><h5><b>Order ID</h5></th>".
+                            "<th align='center'><h5><b>Room No</b></h5></th>".
+                            "<th align='center'><h5><b>Amount</b></h5></th>".
+                            "<th align='center'><h5><b>Bukti</b></h5></th>".
+                            "<th width='175px'><h5><b>Action</b></h5></th>".
+                        "<tr/>";
+
+    //perulangan membuat list data
+    $nomor_baris = $default_index + 1;
+    while($data = mysql_fetch_assoc($query_payment)){
+        $output_html .= "<tr>".
+                            "<td align='center'><h5>".$data['orders_id']."</h5></td>".
+                            "<td align='center'><h5>".$data["room_no"]."</h5></td>".
+                            "<td align='center'><h5>IDR ".$data["amount"]."</h5></td>".
+                            "<td align='center'><img src'" . $data['payment'] . "' style='width:600px; height:300px;'></td>".
+                            "<td width='170px'><a class='btn btn-primary' href='verfy.php?id='".$data['orders_id'].">Verify</a>".
+                            "<a class='btn btn-primary' href='delete-payment.php?id='".$data['orders_id']."'>Delete</a></td>".
+                        "</tr>";
+        $nomor_baris++;
+    }
+
+    $output_html .= "</table>";
 ?>
 
 <!DOCTYPE html>
@@ -31,30 +83,8 @@
             <div class="text-center">
                 <h2>Payment Verification List</h2>           
                 <div class="col-md-12 wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="300ms">
-                    <table class="col-md-12 wow fadeInDown table">
-                    	<tr bgcolor="#F9F9F9">
-                    		<th width="80px"><h5><b>Order ID</b></h5></th>
-							<th><h5><b>Room No</b></h5></th>
-							<th><h5><b>Amount</b></h5></th>
-                            <th><h5><b>Bukti</b></h5></th>
-                            <th width="100px"><h5><b>Action</b></h5></th>
-						</tr>
-                    <?php
-						while(($data_payment=mysql_fetch_array($query_payment)) && ($data_customer=mysql_fetch_array($query_customer))){
-                    ?>
-						<tr>
-							<td align="center"><?php echo ("<h5>" . $data_payment['orders_id'] . "</h5>"); ?></td>
-							<td width="100px" align="center"><?php echo ("<h5>" . $data_payment['room_no'] . "</h5>") ?></td>
-                            <td width="120px" align="center"><?php echo ("<h5>IDR " . $data_payment['amount'] . "</h5>") ?></td>
-                            <?php echo '<td><img src"' . $data_customer['ktp'] . '" style="width: 600px; height:300px;"></td>' ?>
-                            <td width="170px"><?php echo '<a class="btn btn-primary" href="verify.php?id='.$data_payment['orders_id'].'">Verify</a>' ?>
-                                <?php echo ' ';
-                                      echo '<a class="btn btn-primary" href="delete-payment.php?id='.$data_payment['orders_id'].'">Delete</a>';
-                                ?>
-                            </td>
-						</tr>
-				  <?php } ?>
-				  	</table>
+                    <?php echo $output_html?>
+                    <?php echo $html_paging?>
                 </div>
             </div>
         </div>
