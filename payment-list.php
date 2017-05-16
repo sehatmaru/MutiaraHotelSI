@@ -47,9 +47,9 @@
                             "<td align='center'><h5>".$data['orders_id']."</h5></td>".
                             "<td align='center'><h5>".$data["room_no"]."</h5></td>".
                             "<td align='center'><h5>IDR ".$data["amount"]."</h5></td>".
-                            "<td align='center'><img src'" . $data['payment'] . "' style='width:600px; height:300px;'></td>".
-                            "<td width='170px'><a class='btn btn-primary' href='verfy.php?id='".$data['orders_id'].">Verify</a>".
-                            "<a class='btn btn-primary' href='delete-payment.php?id='".$data['orders_id']."'>Delete</a></td>".
+                            "<td align='center'><img src='" . $data['payment'] . "' style='width:600px; height:300px;'></td>".
+                            "<td width='170px'><a class='btn btn-primary' href=verify-payment.php?id=".$data['orders_id'].">Verify</a>".
+                            "<a class='btn btn-primary' href=delete-payment.php?id=".$data['orders_id'].">Delete</a></td>".
                         "</tr>";
         $nomor_baris++;
     }

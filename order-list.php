@@ -3,8 +3,69 @@
 	include (dirname(__FILE__).'/common/koneksi.php');
 	$query_order       = mysql_query("SELECT * FROM orders")or die(mysql_error());    //Retrieve orders data
     $query_customer    = mysql_query("SELECT * FROM customer")or die(mysql_error());    //Retrieve customer data
-?>
 
+    $default_index = 0;
+    $default_batas = 4;
+
+    if(isset($_GET['batas'])){
+        $default_batas = $_GET['batas'];
+    }
+
+    if(isset($_GET['halaman'])){
+        $default_index = ($_GET['halaman']-1) * $default_batas;
+    }
+
+    $query_porder = mysql_query("SELECT * FROM orders limit ".$default_index.", ".$default_batas);
+
+    $total_baris = mysql_num_rows(mysql_query("SELECT * FROM orders"));
+
+    $nomor_paging = 1;
+    $html_paging = "<ul class='pagination'>";
+    while($total_baris - $default_batas > 0){
+        $html_paging .= "<li><a href='?halaman=".$nomor_paging."&batas=".$default_batas."'>".$nomor_paging."</a></li>";
+        $nomor_paging++;
+        $total_baris -= $default_batas;
+    }
+
+    if($total_baris > 0){
+        $html_paging .= "<li><a href='?halaman=".$nomor_paging."&batas=".$default_batas."'>".$nomor_paging."</a></li>";
+    }
+
+    $html_paging .= "</ul>";
+
+    $output_html = "<table class='col-md-12 wow fadeInDown table table-bordered'>".
+                        "<tr bgcolor='#F9F9F9'>".
+                            "<th align='center'><h5><b>Order ID</h5></th>".
+                            "<th align='center'><h5><b>Check In</b></h5></th>".
+                            "<th align='center'><h5><b>Check Out</b></h5></th>".
+                            "<th align='center'><h5><b>Ordered</b></h5></th>".
+                            "<th align='center'><h5><b>Room No</b></h5></th>".
+                            "<th align='center'><h5><b>Payment</b></h5></th>".
+                            "<th align='center'><h5><b>Keterangan</b></h5></th>".
+                            "<th width='300px' align='center'><h5><b>Action</b></h5></th>".
+                        "<tr/>";
+
+    //perulangan membuat list data
+    $nomor_baris = $default_index + 1;
+    while($data = mysql_fetch_assoc($query_porder)){
+        $output_html .= "<tr>".
+                            "<td align='center'><h5><b><a href=view-customer.php?id=".$data['orders_id'].">". $data['orders_id'] ."</a></h5></b>'</td>".
+                            "<td align='center'><h5>".$data["check_in"]."</h5></td>".
+                            "<td align='center'><h5>".$data["check_out"]."</h5></td>".
+                            "<td align='center'><h5>".$data["ordered"]."</h5></td>".
+                            "<td align='center'><h5>".$data["room_no"]."</h5></td>".
+                            "<td><h5>IDR ".$data["payment"]."</h5></td>".
+                            "<td align='center'><h5>".$data["keterangan"]."</h5></td>".
+                            "<td width='300px'><a class='btn btn-primary' href=check_in.php?id=".$data['orders_id'].">Check In</a>".
+                            "<a class='btn btn-primary' href=check_out.php?id=".$data['orders_id'].">Check Out</a>".
+                            "<a class='btn btn-primary' href=delete-order.php?id=".$data['orders_id'].">Delete</a></td>".
+                        "</tr>";
+        $nomor_baris++;
+    }
+
+    $output_html .= "</table>";
+?>
+<a href=""></a>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -31,38 +92,8 @@
             <div class="text-center">
                 <h2>Order List</h2>           
                 <div class="col-md-12 wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="300ms">
-                    <table class="col-md-12 wow fadeInDown table">
-                    	<tr bgcolor="#F9F9F9">
-                    		<th><h5><b>Order ID</b></h5></th>
-                            <th><h5><b>Status</b></h5></th>
-							<th><h5><b>Check In</b></h5></th>
-							<th><h5><b>Check Out</b></h5></th>
-                            <th><h5><b>Length of Stay</b></h5></th>
-                            <th><h5><b>Room No</b></h5></th>
-                            <th><h5><b>Payment</b></h5></th>
-                            <th><h5><b>Action</b></h5></th>
-						</tr>
-                    <?php
-						while(($data_order = mysql_fetch_array($query_order)) && ($data_customer = mysql_fetch_array($query_customer))){
-                    ?>
-						<tr>
-							<td align="center"><?php echo ("<h5>" . $data_order['orders_id'] . "</h5>"); ?></td>
-                            <td align="center"><?php echo ("<h5>" . $data_order['status'] . "</h5>") ?></td>
-                            <td align="center"><?php echo ("<h5>" . $data_order['check_in'] . "</h5>") ?></td>
-                            <td align="center"><?php echo ("<h5>" . $data_order['check_out'] . "</h5>") ?></td>
-                            <td align="center"><?php echo ("<h5>" . $data_order['length_of_stay'] . "</h5>") ?></td>
-                            <td align="center"><?php echo ("<h5>" . $data_order['room_no'] . "</h5>") ?></td>
-                            <td align="center"><?php echo ("<h5>" . $data_order['payment'] . "</h5>") ?></td>
-                            <td align="center" width="225px"><?php echo '<a class="btn btn-primary" href="check_in.php?id='.$data_order['orders_id'].'">Check In</a>' ?>
-                                <?php echo ' ';
-                                      echo '<a class="btn btn-primary" href="check_out.php?id='.$data_order['orders_id'].'">Check Out</a>';
-                                      echo ' ';
-                                      echo '<a class="btn btn-primary" href="delete-order.php?id='.$data_order['orders_id'].'">Delete</a>';
-                                ?>
-                            </td>
-						</tr>
-				  <?php } ?>
-				  	</table>
+                    <?php echo $output_html?>
+                    <?php echo $html_paging?>
                 </div>
             </div>
         </div>
