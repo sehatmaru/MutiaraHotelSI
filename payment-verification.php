@@ -16,7 +16,7 @@
 	<link href="css/animate.min.css" rel="stylesheet"> 
 	<link href="css/style.css" rel="stylesheet">
 
-    <script src="js/jquery.js"></script>        
+    <script src="js/jquery.js"></script>
     <script src="js/bootstrap.min.js"></script> 
     <script src="https://maps.google.com/maps/api/js?sensor=true"></script>
     <script src="js/wow.min.js"></script>
@@ -51,7 +51,7 @@
                         <tr>
                             <td><h5><b>Bukti</b></h5></td>
                             <td><h5><b> : </b></h5></td>
-                            <td><h5><input type="file" name="ktp" accept="img/*" required></h5></td>
+                            <td><h5><input type="file" name="payment" accept="img/*" required></h5></td>
                         </tr>
                     </table>
                      <div class="text-center"><button type="submit" name="submit" class="btn btn-primary btn-lg" required>Verify</button></div>

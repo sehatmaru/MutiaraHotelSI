@@ -48,8 +48,7 @@
 	        				<div class="text-center">
 	        					<table class="table">
 	        						<tr>
-	        							<td bgcolor="
-	        							#E3E3E3"><h5><b>Order ID</b></h5></td>
+	        							<td bgcolor="#E3E3E3" width="200px"><h5><b>Order ID</b></h5></td>
 	        							<td><h5><b><?php echo($current_data_order['orders_id']) ?></b></h5></td>
 	        						</tr>
 	        						<tr>
@@ -61,14 +60,15 @@
 	        							<td><h5><b><?php echo($current_data_payment['amount']) ?></b></h5></td>
 	        						</tr>
 	        					</table>
+                                <h4>Please wait our information about your <code>order</code> & <code>room number</code>.<br>Thank you for choosing our hotel.</h4>
 	        				</div>
 	        			</div>
 	        		</section>
 	        	<?php require_once(dirname(__FILE__).'/common/footer.php');
         	}else{
-        		if ($_FILES['ktp']['name']) {
-            		move_uploaded_file($_FILES['ktp']['tmp_name'], 'ktp/' . $name . '.jpg');
-            		$ktp = 'ktp/' . $name . '_payment.jpg';
+        		if ($_FILES['payment']['name']) {
+            		move_uploaded_file($_FILES['payment']['tmp_name'], 'payment/' . $orders_id . '_payment.jpg');
+            		$payment = 'payment/' . $orders_id . '_payment.jpg';
             	}
 
         		$query_select_orders = mysql_query("SELECT * FROM orders WHERE orders_id='$orders_id'");
@@ -77,7 +77,7 @@
 
         		$amountdb = number_format($amount);
 
-        		$query_payment = mysql_query("INSERT INTO payment VALUES(NULL, '$orders_id', '1', '$room_no', '$orders_id', '$amountdb', '$ktp')");
+        		$query_payment = mysql_query("INSERT INTO payment VALUES(NULL, '$orders_id', '1', '$room_no', '$orders_id', '$amountdb', '$payment')");
 
         		if ($query_payment) {
         			require_once(dirname(__FILE__)).'/common/header.php';?>
@@ -127,6 +127,7 @@
         								<td><h5><b><?php echo("IDR " . $amountdb) ?></b></h5></td>
         							</tr>
         						</table>
+                                <h4>Please wait our information about your <code>order</code> & <code>room number</code>.<br>Thank you for choosing our hotel.</h4>
         					</div>
         				</section>
         			</body>

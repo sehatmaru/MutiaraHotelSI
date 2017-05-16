@@ -51,12 +51,12 @@
                             <div class="text-center"> 
                                 <table class="table">
                                     <tr>
-                                        <td bgcolor="#E3E3E3"><h5><b>Costumer Name</b></h5></td>
+                                        <td bgcolor="#E3E3E3" width="200px"><h5><b>Costumer Name</b></h5></td>
                                         <td><h5><b><?php echo($current_data_customer['name']) ?></b></h5></td>
                                     </tr>
                                     <tr>
                                         <td bgcolor="#E3E3E3"><h5><b>Order ID</b></h5></td>
-                                        <td style="color: red; font-size: 14px;"><b><?php echo($current_data_order['orders_id']) ?></b></td>
+                                        <td style="color: red; font-size: 14px;padding-top: 16px"><b><?php echo($current_data_order['orders_id']) ?></b></td>
                                     </tr>
                                     <tr>
                                         <td bgcolor="#E3E3E3"><h5><b>Check In</b></h5></td>
@@ -67,8 +67,12 @@
                                         <td><h5><b><?php echo($current_data_order['check_out']); ?></b></h5></td>
                                     </tr>
                                     <tr>
+                                        <td bgcolor="#E3E3E3"><h5><b>Ordered</b></h5></td>
+                                        <td><h5><b><?php echo($current_data_order['ordered']); ?></b></h5></td>
+                                    </tr>
+                                    <tr>
                                         <td bgcolor="#E3E3E3"><h5><b>Payment</b></h5></td>
-                                        <td><h5><b>Rp <?php echo($current_data_order['payment']) ?></b></h5></td>
+                                        <td><h5><b>IDR <?php echo($current_data_order['payment']) ?></b></h5></td>
                                     </tr>
                                 </table>
                             </div>
@@ -76,7 +80,7 @@
                             <h3>Please pay your order to this Bank Account :</h3>
                             <table class="table">
                                 <tr>
-                                    <td bgcolor="#E3E3E3"><h5><b>A/N</b></h5></td>
+                                    <td bgcolor="#E3E3E3" width="200px"><h5><b>A/N</b></h5></td>
                                     <td><h5><b>Mutiara Balige Hotel</b></h5></td>
                                 </tr>
                                 <tr>
@@ -88,7 +92,8 @@
                                     <td><h5><b>BNI</b></h5></td>
                                 </tr>
                             </table><br>
-                            <h4><b>NOTE </b>Not order before ? Plese contact us for more information</h4>
+                            <h4><b>NOTE </b>Not order before ? Plese <b><a href="contact.php">contact us</a></b> for more information.</h4>
+                            <a class="btn btn-primary btn-lg" href="payment-verification.php">Verify Payment</a>
                         </div>
                     </div>
                 </section>    
@@ -99,8 +104,8 @@
         }else{
             //----START UPLOAD FILE----//
         if ($_FILES['ktp']['name']) {
-            move_uploaded_file($_FILES['ktp']['tmp_name'], 'ktp/' . $name . '.jpg');
-            $ktp = 'ktp/' . $name . '.jpg';
+            move_uploaded_file($_FILES['ktp']['tmp_name'], 'ktp/' . $name . '_ktp.jpg');
+            $ktp = 'ktp/' . $name . '_ktp.jpg';
         }
         //----END UPLOAD FILE----//
 
@@ -123,8 +128,12 @@
         //----START RETRIEVE ROOM NO----//
         $query_select_kamar     = mysql_query("SELECT * FROM room WHERE room_type_id='$room_type' AND keterangan='Kosong'");
         $data_kamar     = mysql_fetch_array($query_select_kamar);
-        $room_no    = $data_kamar['room_no'];
-        //----END RETRIEVE ROOM NO----//
+        
+        if (isset($data_kamar['room_no'])) {
+            $room_no = $data_kamar['room_no'];
+        }else{
+            echo "Kamar Penuh";
+        }
         
         //----START RETRIEVE PRICE----//
         $query_select_jenis_kamar    = mysql_query("SELECT * FROM room_type WHERE room_type_id='$room_type'") or die(mysql_error());   //Retrieve jenis_kamar data
@@ -138,16 +147,17 @@
         //----END RETRIEVE PRICE----//
 
         $payment = number_format($length_of_stay*$data_harga);  //Payment total with currency format
+        $ordered = date('Y-m-d');
 
-        $query_order   = mysql_query("INSERT INTO orders VALUES(NULL, '$customer_id', '$room_no', '$check_in', '$check_out', '$status', '$length_of_stay', '$payment')") or die(mysql_error());    //Insert Order data
+        $query_order   = mysql_query("INSERT INTO orders VALUES(NULL, '$customer_id', '$room_no', '$check_in', '$check_out', '$status', '$ordered', '$length_of_stay', '$payment', 'Not Verified')") or die(mysql_error());    //Insert Order data
 
         //----START RETRIEVE ORDER ID----//
         $query_select_order    = mysql_query("SELECT * FROM orders WHERE orders_id='$customer_id'") or die(mysql_error());  //Retrieve data order
         $data_order = mysql_fetch_array($query_select_order);
-        $order_id       = $data_order['orders_id'];
-        //----END RETRIEVE ORDER ID----//s
+        $order_id   = $data_order['orders_id'];
+        //----END RETRIEVE ORDER ID----//
 
-        $query_room = "UPDATE room SET keterangan='Terisi' WHERE room_no='$room_no'";   //Insert keterangan data
+        $query_room_update = mysql_query("UPDATE room SET keterangan='Terisi' WHERE room_no='$room_no'");   //Insert keterangan data
             if($query_order && $query_customer){
                 require_once(dirname(__FILE__).'/common/header.php');
             ?>
