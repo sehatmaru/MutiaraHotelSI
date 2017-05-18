@@ -4,7 +4,7 @@
 	$query_studio   = mysql_query("SELECT * FROM room WHERE room_type_id='1'")or die(mysql_error());
 	$query_superior = mysql_query("SELECT * FROM room WHERE room_type_id='2'")or die(mysql_error());
 	$query_deluxe	= mysql_query("SELECT * FROM room WHERE room_type_id='3'")or die(mysql_error());
-	$query_exe 		= mysql_query("SELECT * FROM room WHERE room_type_id='4'")or die(mysql_error());
+	$query_executive= mysql_query("SELECT * FROM room WHERE room_type_id='4'")or die(mysql_error());
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -31,31 +31,20 @@
 				<h2><i class="fa fa-cog fa" style="font-size: 40px; color: #111111;">&nbsp;</i>ROOM LIST</h2>
 				<div class="col-md-3 wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="300ms">
 					<h3>STUDIO</h3>
+					<form action="edit-room.php" method="GET">
 					<table class="table">
-						<form action="manage-process.php" method="POST">
 						<div class="form-group">
+						<tr bgcolor="#F9F9F9">
+							<th><h5>Room No</h5></th>
+							<th><h5>Keterangan</h5></th>
+							<th><h5>Action</h5></th>
+						</tr>
 					<?php while($studio = mysql_fetch_array($query_studio)){
-						$studio_no = 0;
-						$studio_no++;
 					?>
 						<tr>
 							<td><?php echo ("<h5>Kamar " . $studio['room_no'] . "</h5>"); ?></td>
-							<td>
-								<select class="form-control" name="studio">
-								<?php 
-									if ($studio['keterangan']=='Terisi') {
-								?>
-									<option value="Terisi"><h5><?php echo($studio['keterangan']) ?></h5></option>
-									<option value="Kosong">Kosong</option>
-								<?php
-									}else{
-								?>
-									<option value="Kosong"><h5><?php echo($studio['keterangan']) ?></h5></option>
-									<option value="Terisi">Terisi</option>
-								<?php
-									}
-								?>
-							</td>
+							<td align="center"><?php echo("<h5>" . $studio['keterangan'] . "</h5>") ?></td>
+							<?php echo "<td align='center'><a class='btn btn-primary' href=edit-room.php?id=".$studio['room_no'].">Edit</a></td>"; ?>
 						</tr>
 				  <?php } ?>
 					</table>
@@ -64,28 +53,17 @@
 					<h3>SUPERIOR</h3>
 					<table class="table">
 						<div class="form-group">
+						<tr bgcolor="#F9F9F9">
+							<th><h5>Room No</h5></th>
+							<th><h5>Keterangan</h5></th>
+							<th><h5>Action</h5></th>
+						</tr>
 					<?php while($superior = mysql_fetch_array($query_superior)){
-						$superior_no = 0;
-						$superior_no++;
 					?>
 						<tr>
 							<td><?php echo ("<h5>Kamar " . $superior['room_no'] . "</h5>"); ?></td>
-							<td>
-								<select class="form-control" name="<?php $superior_no ?>">
-								<?php 
-									if ($superior['keterangan']=='Terisi') {
-								?>
-									<option value="Terisi"><h5><?php echo($superior['keterangan']) ?></h5></option>
-									<option value="Kosong">Kosong</option>
-								<?php
-									}else{
-								?>
-									<option value="Kosong"><h5><?php echo($superior['keterangan']) ?></h5></option>
-									<option value="Terisi">Terisi</option>
-								<?php
-									}
-								?>
-							</td>
+							<td align="center"><?php echo("<h5>" . $superior['keterangan'] . "</h5>") ?></td>
+							<?php echo "<td align='center'><a class='btn btn-primary' href=edit-room.php?id=".$superior['room_no'].">Edit</a></td>"; ?>
 						</tr>
 				  <?php } ?>
 					</table>
@@ -94,66 +72,42 @@
 					<h3>DELUXE</h3>
 					<table class="table">
 						<div class="form-group">
+						<tr bgcolor="#F9F9F9">
+							<th><h5>Room No</h5></th>
+							<th><h5>Keterangan</h5></th>
+							<th><h5>Action</h5></th>
+						</tr>
 					<?php while($deluxe = mysql_fetch_array($query_deluxe)){
-						$deluxe_no = 0;
-						$deluxe_no++;
 					?>
 						<tr>
 							<td><?php echo ("<h5>Kamar " . $deluxe['room_no'] . "</h5>"); ?></td>
-							<td>
-								<select class="form-control" name="<?php $deluxe_no ?>">
-								<?php 
-									if ($deluxe['keterangan']=='Terisi') {
-								?>
-									<option value="Terisi"><h5><?php echo($deluxe['keterangan']) ?></h5></option>
-									<option value="Kosong">Kosong</option>
-								<?php
-									}else{
-								?>
-									<option value="Kosong"><h5><?php echo($deluxe['keterangan']) ?></h5></option>
-									<option value="Terisi">Terisi</option>
-								<?php
-									}
-								?>
-							</td>
+							<td align="center"><?php echo("<h5>" . $deluxe['keterangan'] . "</h5>") ?></td>
+							<?php echo "<td align='center'><a class='btn btn-primary' href=edit-room.php?id=".$deluxe['room_no'].">Edit</a></td>"; ?>
 						</tr>
 				  <?php } ?>
-						</table>
+					</table>
 				</div>
 				<div class="col-md-3 wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="1200ms">
 					<h3>EXECUTIVE</h3>
 					<table class="table">
 						<div class="form-group">
-					<?php while($exe = mysql_fetch_array($query_exe)){
-						$exe_no	= 0;
-						$exe_no++;
+						<tr bgcolor="#F9F9F9">
+							<th><h5>Room No</h5></th>
+							<th><h5>Keterangan</h5></th>
+							<th><h5>Action</h5></th>
+						</tr>
+					<?php while($executive = mysql_fetch_array($query_executive)){
 					?>
 						<tr>
-							<td><?php echo ("<h5>Kamar " . $exe['room_no'] . "</h5>"); ?></td>
-							<td>
-								<select class="form-control" name="<?php $exe_no ?>">
-								<?php 
-									if ($exe['keterangan']=='Terisi') {
-								?>
-									<option value="Terisi"><h5><?php echo($exe['keterangan']) ?></h5></option>
-									<option value="Kosong">Kosong</option>
-								<?php
-									}else{
-								?>
-									<option value="Kosong"><h5><?php echo($exe['keterangan']) ?></h5></option>
-									<option value="Terisi">Terisi</option>
-								<?php
-									}
-								?>
-							</td>
-							<td
+							<td><?php echo ("<h5>Kamar " . $executive['room_no'] . "</h5>"); ?></td>
+							<td align="center"><?php echo("<h5>" . $executive['keterangan'] . "</h5>") ?></td>
+							<?php echo "<td align='center'><a class='btn btn-primary' href=edit-room.php?id=".$executive['room_no'].">Edit</a></td>"; ?>
 						</tr>
 				  <?php } ?>
 					</table>
 				</div>
 			</div>
 		</div>
-			<div class="text-center"><button type="submit" name="submit" class="btn btn-primary btn-lg" required>Update</button></div>
 		</form>
 	</div>
 	<?php
