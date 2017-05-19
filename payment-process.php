@@ -10,8 +10,10 @@
         $current_data_order 	= mysql_fetch_array($current_select_order);
         $current_select_payment	= mysql_query("SELECT * FROM payment WHERE orders_id='$orders_id'");
         $current_data_payment	= mysql_fetch_array($current_select_payment);
+        $current_select_customer= mysql_query("SELECT * FROM customer WHERE customer_id='$orders_id'");
+        $current_data_customer  = mysql_fetch_array($current_select_customer);
 
-        if (($orders_id==$current_data_order['orders_id'])) {
+        if (($orders_id==$current_data_order['orders_id'])&&($name==$current_data_customer['name'])) {
         	if ($orders_id==$current_data_payment['orders_id']) {
         		$select_customer = mysql_query("SELECT * FROM customer WHERE customer_id='$orders_id'");
         		$data_customer = mysql_fetch_array($select_customer);
@@ -60,7 +62,7 @@
 	        							<td><h5><b><?php echo($current_data_payment['amount']) ?></b></h5></td>
 	        						</tr>
 	        					</table>
-                                <h4>Please wait our information about your <code>order</code> & <code>room number</code>.<br>Thank you for choosing our hotel.</h4>
+                                <h4>Please wait our information about your order & room number.<br>Thank you for choosing our hotel.</h4>
 	        				</div>
 	        			</div>
 	        		</section>
@@ -76,8 +78,9 @@
         		$room_no = $data_order['room_no'];
 
         		$amountdb = number_format($amount);
+                $payed = date('Y-m-d');
 
-        		$query_payment = mysql_query("INSERT INTO payment VALUES(NULL, '$orders_id', '1', '$room_no', '$orders_id', '$amountdb', '$payment')");
+        		$query_payment = mysql_query("INSERT INTO payment VALUES(NULL, '$orders_id', '1', '$room_no', '$orders_id', '$amountdb', '$payed', '$payment')");
 
         		if ($query_payment) {
         			require_once(dirname(__FILE__)).'/common/header.php';?>
@@ -127,7 +130,7 @@
         								<td><h5><b><?php echo("IDR " . $amountdb) ?></b></h5></td>
         							</tr>
         						</table>
-                                <h4>Please wait our information about your <code>order</code> & <code>room number</code>.<br>Thank you for choosing our hotel.</h4>
+                                <h4>Please wait our information about your order & room number.<br>Thank you for choosing our hotel.</h4>
         					</div>
         				</section>
         			</body>
@@ -163,7 +166,7 @@
         			<div class="container">
         				<div class="text-center">
         					<h2>Payment will not sent</h2>
-        					<p><code><b>Order ID</b></code> not found. Please verify your payment again.</p>
+        					<p><code><b>Order ID</b></code> or <code><b>Name</b></code> not found. Please verify your payment again.</p>
         					<a href="payment-verification.php" class="btn btn-primary btn-lg">Back</a>
         				</div>
         			</div>

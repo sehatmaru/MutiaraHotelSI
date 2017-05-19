@@ -26,49 +26,70 @@
   <body>
 	<section class="contact-page">
         <div class="container wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="300ms">
+			<div class="page-header">
             <div class="text-center">        
                 <h2></h2>
-                <p>Mutiara Balige Hotel berlokasi di area strategis dan pusat Balige, berjarak kurang lebih 18 KM dari bandara silangit 
-                   dekat dengan Institusi dan Spot penting seperti tentang taman rekreasi, tempat pariwisata, perkantoran, bank, sekolah 
-                   dan juga lokasi bisnis seperti pasar dan pertokoan.
-                   Kami menawarkan penginapan dengan panorama pemandangan alam Danau Toba, perbukitan dan persawahan.
+                <p>Mutiara Balige Hotel is conveniently located in the strategic and central area of ​​Balige, approximately 18 KM from the airport
+                   Close to important Institutions and Spot such as recreational parks, tourist sites, offices, banks, schools
+                   As well as business locations such as markets and shops.
+                   We offer lodging panoramic views of Lake Toba, hills and rice fields.
                 </p>
-            </div>
-           <div class="col-md-8">
-                  <div class="contact-form">
-                    <h2></h2>
-                        <form method="post" action="contact-post.php">
-                            <div>
-                                <span>name</span>
-                                <span><input type="username" class="form-control" id="userName"></span>
-                            </div>
-                            <div>
-                                <span>e-mail</span>
-                                <span><input type="email" class="form-control" id="inputEmail3"></span>
-                            </div>
-                            <div>
-                                <span>subject</span>
-                                <span><textarea name="userMsg"> </textarea></span>
-                            </div>
-                           <div>
-                           <br><br>
-                                <label class="fa-btn btn-1 btn-1e"><input type="submit" value="submit us"></label>
-                          </div>
-                        </form>
+			</div>
+			</div>
+
+       <!-- Team -->
+        <div class="bg-color-sky-light">
+            <div class="content-lg container">
+                <div class="row margin-b-40">
+                    <div class="col-sm-6">
+                        
                     </div>
-            </div>      
-            <div class="clearfix"></div>        
-    </div> 
-</div>
-</div>
-<div class="footer_bg">
-    <div class="container">
-        <div class="row  footer">
-            <div class="copy text-center">
-                <p class="link"><span>&#169; All rights reserved | Design by&nbsp;<a href="http://w3layouts.com/"> W3Layouts</a></span></p>
+                </div>
+                <!--// end row -->
+
+                <div class="row">
+                    <!-- Team -->
+                    <div class="col-sm-4 sm-margin-b-20">
+                        <div class="bg-color-white margin-b-20">
+                            <div class="wow zoomIn" data-wow-duration=".3" data-wow-delay=".1s">
+                                <img class="img-responsive" src="img/01.jpg" alt="Team Image">
+                            </div>
+                        </div>
+                        <h4><a href="#">Sehat Maruli Tua Samosir</a> <span class="text-uppercase margin-l-20">Project Manager</span></h4>
+                      
+                    </div>
+                    <!-- End Team -->
+
+                    <!-- Team -->
+                    <div class="col-sm-4 sm-margin-b-50">
+                        <div class="bg-color-white margin-b-20">
+                            <div class="wow zoomIn" data-wow-duration=".3" data-wow-delay=".1s">
+                                <img class="img-responsive" src="img/b.PNG" alt="Team Image">
+                            </div>
+                        </div>
+                        <h6><a href="#">Magdalena Simamora</a><br>
+                        <span class="text-uppercase margin-l-20">Lead Developer</span></h6>
+                       
+                    </div>
+                    <!-- End Team -->
+
+                    <!-- Team -->
+                    <div class="col-sm-4 sm-margin-b-50">
+                        <div class="bg-color-white margin-b-10">
+                            <div class="wow zoomIn" data-wow-duration=".3" data-wow-delay=".1s">
+                                <img class="img-responsive" src="img/a.PNG" alt="Team Image">
+                            </div>
+                        </div>
+                        <h6><a href="#">Putri A.E Sihotang</a> <br>
+                        <span class="text-uppercase margin-l-20">Designer</span></h6>
+                       
+                    </div>
+                    <!-- End Team -->
+                </div>
+                <!--// end row -->
             </div>
         </div>
-    </div>
+        <!-- End Team -->
     </section>    
 </body>
 </html>

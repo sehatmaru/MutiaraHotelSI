@@ -3,15 +3,9 @@
 	        
 	$orders	= $_GET['id'];
 
-	$select_orders 	= mysql_query("SELECT * FROM orders WHERE orders_id='$orders'");
-	$data_orders	= mysql_fetch_array($select_orders);
-	$room_no		= $data_orders['room_no'];
-	$update_room 	= mysql_query("UPDATE room SET keterangan='Kosong' WHERE room_no='$room_no'");
-	$delete_orders 	= mysql_query("DELETE FROM orders WHERE orders_id='$orders'");
-	$delete_customer= mysql_query("DELETE FROM customer WHERE customer_id='$orders'");
-	$delete_payment = mysql_query("DELETE FROM payment WHERE orders_id='$orders'");
+	$check_in = mysql_query("UPDATE orders SET keterangan='Check In' WHERE orders_id='$orders'");
 
-	if ($delete_orders && $delete_customer){
+	if ($check_in){
 	    header('Location: order-list.php');
 	}else{
 	    require_once(dirname(__FILE__).'/common/header.php');
@@ -42,7 +36,7 @@
                 <section class="contact-page">
                     <div class="container">
                         <div class="text-center">        
-                            <h2>Error while deleting order !</h2>
+                            <h2>Error while check in !</h2>
                         </div>
                     </div>
                 </section>    

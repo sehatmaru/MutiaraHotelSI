@@ -4,8 +4,8 @@
 			<h4><b>About Us</b></h4>					
 			<div class="contact-info">
 				<ul>
-					<li><i class="fa fa-map-marker fa"></i>&nbsp;&nbsp;&nbsp; Jl. Tarutung No.120 Balige, Tobasa, Sumatera Utara</li>
-					<li><i class="fa fa-phone fa"></i>&nbsp;&nbsp; 0632-322111 | 0812-6949-7173</li>
+					<li><i class="fa fa-map-marker fa"></i>&nbsp; Jl. Tarutung No.120 Balige, Tobasa, Sumatera Utara</li>
+					<li><i class="fa fa-phone fa"></i>&nbsp; 0632-322111 | 0812-6949-7173</li>
 					<li><i class="fa fa-envelope fa"></i>&nbsp; info@mutiarabaligehotel.com</li>
 				</ul>
 			</div>
