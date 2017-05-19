@@ -15,62 +15,12 @@
 	<link rel="stylesheet" href="css/animate.css">
 	<link href="css/animate.min.css" rel="stylesheet"> 
 	<link href="css/style.css" rel="stylesheet" />
-    <style>
-        .star{
-            display: inline-block;
-            color: #F0F0F0;
-            text-shadow: 0 0 1px #666666;
-            font-size:30px;
-        }
-
-        .highlight, .selected {
-            color:#F4B30A;
-            text-shadow: 0 0 1px #F48F0A;
-        }
-    </style>
 
     <script src="js/jquery.js"></script>        
     <script src="js/bootstrap.min.js"></script> 
     <script src="https://maps.google.com/maps/api/js?sensor=true"></script>
     <script src="js/wow.min.js"></script>
     <script>wow = new WOW({}).init();</script>
-    <script>
-        function highlightStar(obj) {
-            removeHighlight();      
-            $('li').each(function(index) {
-                $(this).addClass('highlight');
-                if(index == $("li").index(obj)) {
-                    return false;   
-                }
-            });
-        }
-
-        function removeHighlight() {
-            $('li').removeClass('selected');
-            $('li').removeClass('highlight');
-        }
-
-        function addRating(obj) {
-            $('li').each(function(index) {
-                $(this).addClass('selected');
-                $('#rate').val((index+1));
-                if(index == $("li").index(obj)) {
-                    return false;   
-                }
-            });
-        }
-
-        function resetRating() {
-            if($("#rate").val()) {
-                $('li').each(function(index) {
-                    $(this).addClass('selected');
-                    if((index+1) == $("#rate").val()) {
-                        return false;   
-                    }
-                });
-            }
-        }
-    </script>
   </head>
   <body>
 	<section class="contact-page">
@@ -108,14 +58,13 @@
                             <td><h5><b>Rate</b></h5></td>
                             <td><h5><b> : </b></h5></td>
                             <td>
-                                <input type="hidden" name="rate" id="rate" required="text">
-                                <ul onMouseOut="resetRating();">
-                                  <li class="star" onmouseover="highlightStar(this);" onmouseout="removeHighlight();" onClick="addRating(this);">&#9733;</li>
-                                  <li class="star" onmouseover="highlightStar(this);" onmouseout="removeHighlight();" onClick="addRating(this);">&#9733;</li>
-                                  <li class="star" onmouseover="highlightStar(this);" onmouseout="removeHighlight();" onClick="addRating(this);">&#9733;</li>
-                                  <li class="star" onmouseover="highlightStar(this);" onmouseout="removeHighlight();" onClick="addRating(this);">&#9733;</li>
-                                  <li class="star" onmouseover="highlightStar(this);" onmouseout="removeHighlight();" onClick="addRating(this);">&#9733;</li>
-                                </ul>
+                                <select name="rate" class="form-control">
+                                    <option>1</option>
+                                    <option>2</option>
+                                    <option>3</option>
+                                    <option>4</option>
+                                    <option>5</option>
+                                </select>
                             </td>
                         </tr>
                         <tr>
