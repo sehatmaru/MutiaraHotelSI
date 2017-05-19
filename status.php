@@ -7,7 +7,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Give us Feedback !</title>
+    <title>Customer Status</title>
     <link href="css/bootstrap.min.css" rel="stylesheet">
 	<link rel="stylesheet" href="css/font-awesome.min.css">
 	<link rel="stylesheet" href="css/animate.css">
@@ -22,18 +22,16 @@
   <body>
 	<section class="contact-page">
         <div class="container wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="300ms">
-            <div class="text-center">        
-                <h2>CORPORATE</h2>
-                <p>	Get 10 % for your lodging in our hotel using company name.
-					Nikmatilah pelayanan terbaik yang kami tawarkan setiap kali anda mengunjungi hotel kami.
-					Khusus bagi anda yang memesan kamar atas nama perusahaan anda, kami memberikan 
-					diskon sebesar 10%.</p>
+            <div class="container">
+                <div class="text-center">      
+                    <h2>CORPORATE</h2>
+                    <p>Especially for those of you who book a room on behalf of your company, we give a discount of <b>10%</b>. To get a <b>Corporate</b> status you must show us your company data and identity card. Enjoy the best services we offer every time you visit our hotel.</p>
+                </div>
             </div>
+            
 			<div class="text-center">        
                 <h2>NON-CORPORATE</h2>
-                <p>	Enjoy the best service in our hotel appropriate agree with tariff.
-					Nikmatilah pelayanan terbaik yang kami tawarkan setiap kali anda mengunjungi hotel kami.
-					Bagi anda yang memesan kamar untuk kepentingan pribadi, anda akan menikmati tarif fantastic yang kami tawarkan setiap harinya.</p>
+                <p>Enjoy our hotel services at an attractive price. Enjoy the best services we offer every time you visit our hotel. You will get <b>Non-Corporate</b> status and enjoy our best Hotel services.</p>
             </div>
         </div>
     </section>    
