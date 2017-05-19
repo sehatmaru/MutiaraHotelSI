@@ -70,7 +70,7 @@
 				<div class="col-md-3 wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="1200ms">
 					<div class="text-center">
 						<img src="img/bycicle.jpg" style="width: 250px; height: 125px; border-bottom-right-radius: 100px; border-top-left-radius: 100px;">
-						<h3>BYCICLE	</h3>
+						<h3>BICYCLE	</h3>
 					</div>
 					<div class="contact-info">
 						<ul>

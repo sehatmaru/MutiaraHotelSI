@@ -104,8 +104,8 @@
         }else{
             //----START UPLOAD FILE----//
         if ($_FILES['ktp']['name']) {
-            move_uploaded_file($_FILES['ktp']['tmp_name'], 'ktp/' . $name . '_ktp.jpg');
-            $ktp = 'ktp/' . $name . '_ktp.jpg';
+            move_uploaded_file($_FILES['ktp']['tmp_name'], 'img/ktp/' . $name . '_ktp.jpg');
+            $ktp = 'img/ktp/' . $name . '_ktp.jpg';
         }
         //----END UPLOAD FILE----//
 
@@ -145,7 +145,7 @@
         $payment = number_format($length_of_stay*$data_harga);  //Payment total with currency format
         $ordered = date('Y-m-d');
 
-        $query_order   = mysql_query("INSERT INTO orders VALUES(NULL, '$customer_id', '$room_no', '$check_in', '$check_out', '$status', '$ordered', '$length_of_stay', '$payment', 'Not Verified')") or die(mysql_error());    //Insert Order data
+        $query_order   = mysql_query("INSERT INTO orders VALUES(NULL, '$customer_id', '$room_no', '$check_in', '$check_out', '$status', '$ordered', '$payment', 'Not Verified')") or die(mysql_error());    //Insert Order data
 
         //----START RETRIEVE ORDER ID----//
         $query_select_order    = mysql_query("SELECT * FROM orders WHERE orders_id='$customer_id'") or die(mysql_error());  //Retrieve data order
@@ -153,7 +153,7 @@
         $order_id   = $data_order['orders_id'];
         //----END RETRIEVE ORDER ID----//
 
-        $query_room_update = mysql_query("UPDATE room SET keterangan='Terisi' WHERE room_no='$room_no'");   //Insert keterangan data
+        $query_room_update = mysql_query("UPDATE room SET keterangan='Dipesan' WHERE room_no='$room_no'");   //Insert keterangan data
             if($query_order && $query_customer){
                 require_once(dirname(__FILE__).'/common/header.php');
             ?>
@@ -315,7 +315,6 @@
     <?php
         require_once(dirname(__FILE__).'/common/footer.php');
     }
-            }
         }
     }else{
         echo '<script>window.history.back()</script>';

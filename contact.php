@@ -31,40 +31,34 @@
             </div>
         </div>
         <div class="container wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="600ms">
-                <div class="col-md-3 wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="300ms">
-                    
-                </div>
-                <div class="col-md-6 wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="300ms">
+            <div class="col-md-12 wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="300ms">
                 <div class="text-center">
-                
-                     
                     <table align="center">
-                                <tr>
-                                    <td rowspan="4"><img src="img/harryssimanungkalit.jpg" style="width: 200px; height: 200px; border-radius: 100%;">
-                                        <div class="text-center">
-                                            <h3>Operation Manager</h3>
-                                        </div>
-                                    </td>
-                                    <td><h5><i class="fa fa-id-badge" style="font-size: 20px"></i></h5></td>
-                                    <td><h5>Harrys Simanungkalit</h5></td>
-                                </tr>
-                                <tr>
-                                    <td><h5><i class="fa fa-facebook-official" style="font-size: 20px"></i></h5></td>
-                                    <td><h5>Harrys Simanungkalit</h5></td>
-                                </tr>
-                                <tr>
-                                    <td><h5><i class="fa fa-linkedin-square" style="font-size: 20px"></i></h5></td>
-                                    <td><h5>Harrys Simanungkalit</h5></td>
-                                </tr>
-                                <tr>
-                                    <td><h5><i class="fa fa-whatsapp" style="font-size: 20px"></i></h5></td>
-                                    <td><h5>0815-1462-7544</h5></td>
-                                </tr>
-                            </table>
+                        <tr>
+                            <td width="300px" rowspan="4" align="center"><img src="img/harryssimanungkalit.jpg" style="width: 200px; height: 200px; border-radius: 100%;">
+                                <div class="text-center">
+                                    <h3>Operation Manager</h3>
+                                </div>
+                            </td>
+                            <td><h5><i class="fa fa-id-badge" style="font-size: 20px"></i></h5></td>
+                            <td><h5>Harrys Simanungkalit</h5></td>
+                        </tr>
+                        <tr>
+                            <td><h5><i class="fa fa-facebook-official" style="font-size: 20px"></i></h5></td>
+                            <td><h5>Harrys Simanungkalit</h5></td>
+                        </tr>
+                        <tr>
+                            <td><h5><i class="fa fa-linkedin-square" style="font-size: 20px"></i></h5></td>
+                            <td><h5>Harrys Simanungkalit</h5></td>
+                        </tr>
+                        <tr>
+                            <td><h5><i class="fa fa-whatsapp" style="font-size: 20px"></i></h5></td>
+                            <td><h5>0815-1462-7544</h5></td>
+                        </tr>
+                    </table>
                 </div>
-                        </div>
-                    </div>
-                </div>
+                
+            </div>
         </div>
     </section>    
 </body>

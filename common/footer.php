@@ -23,17 +23,26 @@
 				</ul>
 			</div>
 		</div>
-		
 		<div class="col-md-4 wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="900ms">				
 			<div class="">
-				<h4><b>Newsletter Registration</b></h4>
-				<p>Subscribe today to receive the latest Day news via email. You may unsubscribe from this service at any time</p>
-				<div class="btn-gamp">		
-					<input type="email" class="form-control" id="exampleInputEmail3" placeholder="Enter Email">
-				</div>
-				<div class="btn-gamp">
-					<a type="submit" class="btn btn-default">Subscribe</a>
-				</div>
+				<h4><b>Pages</b></h4>
+				<table>
+					<tr>
+						<td><a href="reservation.php">Room Reservation</a></td>
+						<td><a href="payment-verification.php">Payment Verification</a></td>
+					</tr>
+					<tr>
+						<td><a href="room.php">Room</a></td>
+						<td><a href="services.php">Services</a></td>
+					</tr>
+					<tr>
+						<td><a href="contact.php">Contact</a></td>
+						<td><a href="feedback.php">Feedback</a></td>
+					</tr>
+					<tr>
+						<td><a href="status.php">Customer Status</a></td>
+					</tr>
+				</table>
 			</div>  
        </div>
 	</div>	

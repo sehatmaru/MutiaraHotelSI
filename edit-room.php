@@ -6,7 +6,7 @@
 
     $select_room  = mysql_query("SELECT * FROM room WHERE room_no='$room_no'");
     $data_room    = mysql_fetch_array($select_room);
-    $keterangan        = $data_room['keterangan'];
+    $keterangan   = $data_room['keterangan'];
 ?>
             <!DOCTYPE html>
             <html lang="en">
@@ -68,6 +68,7 @@
                                                     <option selected><h5>Kosong</h5></option>
                                                     <option><h5>Terisi</h5></option>
                                                     <option><h5>Perbaikan</h5></option>
+                                                    <option><h5>Dipesan</h5></option>
                                                 </select>
                                             </td>";
                                         }else if ($keterangan=='Perbaikan') {
@@ -76,6 +77,16 @@
                                                     <option><h5>Kosong</h5></option>
                                                     <option><h5>Terisi</h5></option>
                                                     <option selected><h5>Perbaikan</h5></option>
+                                                    <option><h5>Dipesan</h5></option>
+                                                </select>
+                                            </td>";
+                                        }else if ($keterangan=='Dipesan') {
+                                         echo   "<td>
+                                                <select class='form-control' name='keterangan'>
+                                                    <option><h5>Kosong</h5></option>
+                                                    <option><h5>Terisi</h5></option>
+                                                    <option><h5>Perbaikan</h5></option>
+                                                    <option selected><h5>Dipesan</h5></option>
                                                 </select>
                                             </td>";
                                         }else{
@@ -84,6 +95,7 @@
                                                     <option><h5>Kosong</h5></option>
                                                     <option selected><h5>Terisi</h5></option>
                                                     <option><h5>Perbaikan</h5></option>
+                                                    <option><h5>Dipesan</h5></option>
                                                 </select>
                                             </td>";
                                         } ?>

@@ -69,8 +69,8 @@
 	        	<?php require_once(dirname(__FILE__).'/common/footer.php');
         	}else{
         		if ($_FILES['payment']['name']) {
-            		move_uploaded_file($_FILES['payment']['tmp_name'], 'payment/' . $orders_id . '_payment.jpg');
-            		$payment = 'payment/' . $orders_id . '_payment.jpg';
+            		move_uploaded_file($_FILES['payment']['tmp_name'], 'img/payment/' . $orders_id . '_payment.jpg');
+            		$payment = 'img/payment/' . $orders_id . '_payment.jpg';
             	}
 
         		$query_select_orders = mysql_query("SELECT * FROM orders WHERE orders_id='$orders_id'");
