@@ -131,11 +131,7 @@
         
         if (isset($data_kamar['room_no'])) {
             $room_no = $data_kamar['room_no'];
-        }else{
-            echo "Kamar Penuh";
-        }
-        
-        //----START RETRIEVE PRICE----//
+            //----START RETRIEVE PRICE----//
         $query_select_jenis_kamar    = mysql_query("SELECT * FROM room_type WHERE room_type_id='$room_type'") or die(mysql_error());   //Retrieve jenis_kamar data
         $data_jenis_kamar = mysql_fetch_array($query_select_jenis_kamar);
         if ($status='Corporate') {
@@ -280,6 +276,46 @@
     <?php
         require_once(dirname(__FILE__).'/common/footer.php');
     }
+            }else{
+                require_once(dirname(__FILE__).'/common/header.php');
+            ?>
+            <!DOCTYPE html>
+            <html lang="en">
+              <head>
+                <meta charset="utf-8">
+                <meta http-equiv="X-UA-Compatible" content="IE=edge">
+                <meta name="viewport" content="width=device-width, initial-scale=1">
+
+                <title>Error !</title>
+
+                <link href="css/bootstrap.min.css" rel="stylesheet">
+                <link rel="stylesheet" href="css/font-awesome.min.css">
+                <link rel="stylesheet" href="css/animate.css">
+                <link href="css/animate.min.css" rel="stylesheet"> 
+                <link href="css/style.css" rel="stylesheet" />
+
+                <script src="js/jquery.js"></script>        
+                <script src="js/bootstrap.min.js"></script> 
+                <script src="https://maps.google.com/maps/api/js?sensor=true"></script>
+                <script src="js/wow.min.js"></script>
+                <script>wow = new WOW({}).init();</script>
+              </head>
+              <body>    
+                <section class="contact-page">
+                    <div class="container">
+                        <div class="text-center">        
+                            <h2>Sorry, your room type is full</h2>
+                            <p>Please order with other room type.</p>
+                            <a class="btn btn-primary btn-lg" href="reservation.php">Order Room</a>
+                        </div>
+                    </div>
+                </section>    
+            </body>
+            </html>
+    <?php
+        require_once(dirname(__FILE__).'/common/footer.php');
+    }
+            }
         }
     }else{
         echo '<script>window.history.back()</script>';

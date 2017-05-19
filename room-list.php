@@ -28,7 +28,6 @@
   	<div class="services">
 		<div class="container">
 			<div class="text-center">
-				<h2><i class="fa fa-cog fa" style="font-size: 40px; color: #111111;">&nbsp;</i>ROOM LIST</h2>
 				<div class="col-md-3 wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="300ms">
 					<h3>STUDIO</h3>
 					<form action="edit-room.php" method="GET">

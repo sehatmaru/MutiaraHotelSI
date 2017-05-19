@@ -26,7 +26,7 @@
     <div class="services">
         <div class="container">
             <div class="text-center">
-                <h2>Welcome, Harrys Simanungkalit !</h2>           
+                <h2>Welcome, Harrys Simanungkalit !</h2>
                 <div class="col-md-3 wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="300ms">
                     <a href="order-list.php"><i class="fa fa-inbox"></i>
                     <h3>Order List</h3></a>

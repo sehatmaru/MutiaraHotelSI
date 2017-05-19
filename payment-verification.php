@@ -61,7 +61,6 @@
         </div>
     </section>    
 </body>
-</html>
 
 <?php
     require_once(dirname(__FILE__).'/common/footer.php');

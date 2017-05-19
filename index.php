@@ -15,16 +15,6 @@
     <link rel="stylesheet" href="css/animate.css">
     <link href="css/animate.min.css" rel="stylesheet"> 
     <link href="css/style.css" rel="stylesheet" />
-    <style type="text/css">
-    	h3 .subheader {
-			-khtml-opacity:.50; 
-			-moz-opacity:.50; 
-			-ms-filter:”alpha(opacity=50)”;
-			 filter:alpha(opacity=50);
-			 filter: progid:DXImageTransform.Microsoft.Alpha(opacity=0.5);
-			 opacity:.50; 
-		}
-    </style>
     
     <script src="js/jquery.js"></script>
     <script src="js/bootstrap.min.js"></script> 
@@ -40,17 +30,16 @@
 					<li data-target="#carousel-slider" data-slide-to="1"></li>
 					<li data-target="#carousel-slider" data-slide-to="2"></li>
 				</ol>
-
 				<div class="carousel-inner">
 					<div class="item active">						
 						<img src="img/front-2.jpg" style="height: 75vh" alt=""> 
 						<div class="carousel-caption">
 							<div class="wow fadeInUp" data-wow-offset="0" data-wow-delay="0.3s">
 								<div class="page-header">
-									<h1>Mutiara Balige Hotel</h1>
+									<h2 style="color: #E7E7E7;">Mutiara Balige Hotel</h2>
 								</div>
 								<div class="wow fadeInUp" data-wow-offset="0" data-wow-delay="0.6s">
-									<h3 style="color: #E7E7E7;">Welcome to our Hotel Information System</h3>
+									<h1 style="color: #E7E7E7;">Welcome to our Hotel Information System</h1>
 								</div>
 							</div>
 						</div>
@@ -60,10 +49,10 @@
 						<div class="carousel-caption">
 							<div class="wow fadeInUp" data-wow-offset="0" data-wow-delay="0.3s">
 								<div class="page-header">
-									<h1>We Are Ready To Serve You</h1>
+									<h2 style="color: #E7E7E7">We Are Ready To Serve You</h2>
 								</div>
 								<div class="wow fadeInUp" data-wow-offset="0" data-wow-delay="0.6s">								
-									<h3 style="color: #E7E7E7;">What you see is what you get</h3>
+									<h1 style="color: #E7E7E7;">What you see is what you get</h1>
 								</div>
 							</div>
 						</div>
@@ -73,10 +62,10 @@
 						<div class="carousel-caption">
 							<div class="wow fadeInUp" data-wow-offset="0" data-wow-delay="0.3s">
 								<div class="page-header">
-									<h1>Online Ordering</h1>
+									<h2 style="color: #E7E7E7">Online Ordering</h2>
 								</div>
 								<div class="wow fadeInUp" data-wow-offset="0" data-wow-delay="0.6s">								
-									<h3 style="color: #E7E7E7;">Enjoy our Online Reservation</h3>
+									<h1 style="color: #E7E7E7;">Enjoy our Online Reservation</h1>
 								</div>
 							</div>
 						</div>
