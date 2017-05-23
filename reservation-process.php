@@ -48,7 +48,7 @@
                                 <h2>Order will not sent</h2>
                                 <p>You have been sent your order before</p>
                             </div>
-                            <div class="text-center"> 
+                            <div class="text-center col-md-6"> 
                                 <table class="table">
                                     <tr>
                                         <td bgcolor="#E3E3E3" width="200px"><h5><b>Costumer Name</b></h5></td>
@@ -76,7 +76,7 @@
                                     </tr>
                                 </table>
                             </div>
-                            <div class="text-center">
+                            <div class="text-center col-md-6">
                             <h3>Please pay your order to this Bank Account :</h3>
                             <table class="table">
                                 <tr>
@@ -92,6 +92,9 @@
                                     <td><h5><b>BNI</b></h5></td>
                                 </tr>
                             </table><br>
+                            </div>
+                        </div>
+                        <div class="text-center">
                             <h4><b>NOTE </b>Not order before ? Plese <b><a href="contact.php">contact us</a></b> for more information.</h4>
                             <a class="btn btn-primary btn-lg" href="payment-verification.php">Verify Payment</a>
                         </div>
@@ -204,7 +207,7 @@
                                         <tr>
                                             <td><h5><b>Payment</b></h5></td>
                                             <td><h5><b> : </b></h5></td>
-                                            <td><h5><b>Rp <?php echo($payment) ?></b></h5></td>
+                                            <td><h5><b>IDR <?php echo($payment) ?></b></h5></td>
                                         </tr>
                                         <tr>
                                             <td><h5><b></b></h5></td>

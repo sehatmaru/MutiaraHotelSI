@@ -48,18 +48,21 @@
 	        					<p>You have sent your payment before.</p>
 	        				</div>
 	        				<div class="text-center">
-	        					<table class="table">
+	        					<table align="center">
 	        						<tr>
-	        							<td bgcolor="#E3E3E3" width="200px"><h5><b>Order ID</b></h5></td>
+	        							<td><h5><b>Order ID</b></h5></td>
+                                        <td><h5><b> : </b></h5></td>
 	        							<td><h5><b><?php echo($current_data_order['orders_id']) ?></b></h5></td>
 	        						</tr>
 	        						<tr>
-	        							<td bgcolor="#E3E3E3"><h5><b>Customer Name</b></h5></td>
+	        							<td><h5><b>Customer Name</b></h5></td>
+                                        <td><h5><b> : </b></h5></td>
 	        							<td><h5><b><?php echo($data_customer['name']) ?></b></h5></td>
 	        						</tr>
 	        						<tr>
-	        							<td bgcolor="#E3E3E3"><h5><b>Amount</b></h5></td>
-	        							<td><h5><b><?php echo($current_data_payment['amount']) ?></b></h5></td>
+	        							<td><h5><b>Amount</b></h5></td>
+                                        <td><h5><b> : </b></h5></td>
+	        							<td><h5><b>IDR <?php echo($current_data_payment['amount']) ?></b></h5></td>
 	        						</tr>
 	        					</table>
                                 <h4>Please wait our information about your order & room number.<br>Thank you for choosing our hotel.</h4>
