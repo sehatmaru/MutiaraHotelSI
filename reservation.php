@@ -2,8 +2,8 @@
     require_once(dirname(__FILE__).'/common/header.php');
     include (dirname(__FILE__).'/common/koneksi.php');
 
-    $query_kamar    = "SELECT * FROM room_type";   //Retrieve room_type data
-    $hasil_query    = mysql_query($query_kamar);
+    $query_kamar    = ("SELECT * FROM room_type");   //Retrieve room_type data
+    $hasil_query    = mysqli_query($koneksi, $query_kamar);
 ?>
 
 <!DOCTYPE html>
@@ -71,7 +71,7 @@
                                 <td>
                                     <select class="form-control" name="room_type">
                                         <?php 
-                                            while ($baris=mysql_fetch_row($hasil_query)) {
+                                            while ($baris=mysqli_fetch_row($hasil_query)) {
                                                 echo "<option value='$baris[0]'>$baris[1]</option>";
                                             }
                                         ?>

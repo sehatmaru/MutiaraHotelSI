@@ -3,11 +3,11 @@
 	        
 	$orders	= $_GET['id'];
 
-	$check_in = mysql_query("UPDATE orders SET keterangan='Check In' WHERE orders_id='$orders'");
-    $query_order = mysql_query("SELECT * FROM orders WHERE orders_id='$orders'");
-    $data_order = mysql_fetch_array($query_order);
+	$check_in = mysqli_query($koneksi, "UPDATE orders SET keterangan='Check In' WHERE orders_id='$orders'");
+    $query_order = mysqli_query($koneksi, "SELECT * FROM orders WHERE orders_id='$orders'");
+    $data_order = mysqli_fetch_array($query_order);
     $room_no    = $data_order['room_no'];
-    $update_room = mysql_query("UPDATE room SET keterangan='Terisi' WHERE room_no='$room_no'");
+    $update_room = mysqli_query($koneksi, "UPDATE room SET keterangan='Terisi' WHERE room_no='$room_no'");
 
 	if ($check_in && $update_room){
 	    header('Location: order-list.php');

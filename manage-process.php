@@ -5,13 +5,13 @@
 	$keterangan	= $_GET['keterangan'];
     $admin_id   = $_GET['administrator_id'];
 
-    $select_manage  = mysql_query("SELECT * FROM manage_room WHERE room_no='$room_no'");
-    $data_manage    = mysql_fetch_array($select_manage);
+    $select_manage  = mysqli_query($koneksi, "SELECT * FROM manage_room WHERE room_no='$room_no'");
+    $data_manage    = mysqli_fetch_array($select_manage);
     $data_room_no   = $data_manage['room_no'];
 
     if (isset($data_room_no)) {
-        $update_manage_room = mysql_query("UPDATE manage_room SET administrator_id='$admin_id', keterangan='$keterangan' WHERE room_no='$room_no'") or die(mysql_error());
-        $update_room = mysql_query("UPDATE room SET keterangan='$keterangan' WHERE room_no='$room_no'");
+        $update_manage_room = mysqli_query($koneksi, "UPDATE manage_room SET administrator_id='$admin_id', keterangan='$keterangan' WHERE room_no='$room_no'");
+        $update_room = mysqli_query($koneksi, "UPDATE room SET keterangan='$keterangan' WHERE room_no='$room_no'");
 
         if ($update_manage_room && $update_room){
             header('Location: room-list.php');
@@ -54,8 +54,8 @@
             require_once(dirname(__FILE__).'/common/footer.php');
         }
     }else{
-        $query_manage = mysql_query("INSERT INTO manage_room VALUES('$admin_id', '$room_no', '$keterangan')") or die(mysql_error());
-        $update_room = mysql_query("UPDATE room SET keterangan='$keterangan' WHERE room_no='$room_no'");
+        $query_manage = mysqli_query($koneksi, "INSERT INTO manage_room VALUES('$admin_id', '$room_no', '$keterangan')");
+        $update_room = mysqli_query($koneksi, "UPDATE room SET keterangan='$keterangan' WHERE room_no='$room_no'");
 
         if ($update_room && $query_manage){
             header('Location: room-list.php');

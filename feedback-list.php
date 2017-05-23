@@ -4,11 +4,11 @@
     include(dirname(__FILE__).'/common/koneksi.php');
     include(dirname(__FILE__).'/common/pagination.php');
 
-    $query_mysql = ("SELECT * FROM feedback")or die(mysql_error());
-    $result = mysql_query($query_mysql);
+    $query_mysql = ("SELECT * FROM feedback");
+    $result = mysqli_query($koneksi, $query_mysql);
     $view = 5;
     $page = isset($_GET["page"]) ? (intval($_GET["page"])) : 1;
-    $tcount = mysql_num_rows($result);
+    $tcount = mysqli_num_rows($result);
     $tpages = ($tcount) ? ceil($tcount/$view) : 1;
     $count = 0;
     $i = ($page-1)*$view;
@@ -49,8 +49,8 @@
                 <tbody>
                     <?php
                         while(($count<$view) && ($i<$tcount)) {
-                            mysql_data_seek($result,$i);
-                            $data = mysql_fetch_array($result);
+                            mysqli_data_seek($result,$i);
+                            $data = mysqli_fetch_array($result);
                     ?>
                     <tr>
                         <td width="300px"><h5><?php echo $data ['name']; ?></h5></td>

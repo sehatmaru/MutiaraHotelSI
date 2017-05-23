@@ -3,7 +3,7 @@
 	        
 	$orders_payment	= $_GET['id'];
 
-	$delete_payment = mysql_query("DELETE FROM payment WHERE orders_id='$orders_payment'");
+	$delete_payment = mysqli_query($koneksi, "DELETE FROM payment WHERE orders_id='$orders_payment'");
 
 	if ($delete_payment){
 	    header('Location: payment-list.php');

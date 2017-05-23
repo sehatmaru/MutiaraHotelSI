@@ -8,12 +8,12 @@
 		$rate		= $_POST['rate'];
 		$comment	= $_POST['comment'];
 
-		$select_customer= mysql_query("SELECT * FROM customer WHERE name='$name' AND email='$email'");
-		$data_customer	= mysql_fetch_array($select_customer);
+		$select_customer= mysqli_query($koneksi, "SELECT * FROM customer WHERE name='$name' AND email='$email'");
+		$data_customer	= mysqli_fetch_array($select_customer);
 		$customer_id	= $data_customer['customer_id'];
 
 		if (isset($customer_id)) {
-			$query_feedback = mysql_query("INSERT INTO feedback VALUES(NULL, '$customer_id', '$name', '$email', '$phone', '$rate', '$comment')") or die(mysql_error());
+			$query_feedback = mysqli_query($koneksi, "INSERT INTO feedback VALUES(NULL, '$customer_id', '$name', '$email', '$phone', '$rate', '$comment')");
 		
 			if($query_feedback){
 					require_once(dirname(__FILE__).'/common/header.php');

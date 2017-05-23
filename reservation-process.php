@@ -11,11 +11,11 @@
         $email          = $_POST['email'];
         $phone          = $_POST['phone'];
 
-        $current_select_customer    = mysql_query("SELECT * FROM customer WHERE name='$name'") or die(mysql_error());  //Retrieve data customer
-        $current_data_customer = mysql_fetch_array($current_select_customer);
+        $current_select_customer    = mysqli_query($koneksi, "SELECT * FROM customer WHERE name='$name'");  //Retrieve data customer
+        $current_data_customer = mysqli_fetch_array($current_select_customer);
         $current_custumer_id  = $current_data_customer['customer_id'];
-        $current_select_order    = mysql_query("SELECT * FROM orders WHERE orders_id='$current_custumer_id'");
-        $current_data_order = mysql_fetch_array($current_select_order);
+        $current_select_order    = mysqli_query($koneksi, "SELECT * FROM orders WHERE orders_id='$current_custumer_id'");
+        $current_data_order = mysqli_fetch_array($current_select_order);
 
         if (($name==$current_data_customer['name']) && ($phone==$current_data_customer['phone'])) {
             require_once(dirname(__FILE__).'/common/header.php');
@@ -116,24 +116,24 @@
         $length_of_stay  = $interval->days;
         //----END DAY COUNT----//
 
-        $query_customer = mysql_query("INSERT INTO customer VALUES(NULL, '$name', '$email', '$phone', '$ktp')")  or die(mysql_error());  //Insert Customer data
+        $query_customer = mysqli_query($koneksi, "INSERT INTO customer VALUES(NULL, '$name', '$email', '$phone', '$ktp')");  //Insert Customer data
 
         //----START RETRIEVE CUSTOMER ID----//
-        $query_select_customer    = mysql_query("SELECT * FROM customer WHERE phone='$phone'") or die(mysql_error());  //Retrieve data customer
-        $data_customer = mysql_fetch_array($query_select_customer);
+        $query_select_customer    = mysqli_query($koneksi, "SELECT * FROM customer WHERE phone='$phone'");  //Retrieve data customer
+        $data_customer = mysqli_fetch_array($query_select_customer);
         $customer_id    = $data_customer['customer_id'];    //Retrieve customer_id
         $customer_name  = $data_customer['name'];
         //----END RETRIEVE CUSTOMER ID----//
 
         //----START RETRIEVE ROOM NO----//
-        $query_select_kamar     = mysql_query("SELECT * FROM room WHERE room_type_id='$room_type' AND keterangan='Kosong'");
-        $data_kamar     = mysql_fetch_array($query_select_kamar);
+        $query_select_kamar     = mysqli_query($koneksi, "SELECT * FROM room WHERE room_type_id='$room_type' AND keterangan='Kosong'");
+        $data_kamar     = mysqli_fetch_array($query_select_kamar);
         
         if (isset($data_kamar['room_no'])) {
             $room_no = $data_kamar['room_no'];
             //----START RETRIEVE PRICE----//
-        $query_select_jenis_kamar    = mysql_query("SELECT * FROM room_type WHERE room_type_id='$room_type'") or die(mysql_error());   //Retrieve jenis_kamar data
-        $data_jenis_kamar = mysql_fetch_array($query_select_jenis_kamar);
+        $query_select_jenis_kamar    = mysqli_query($koneksi, "SELECT * FROM room_type WHERE room_type_id='$room_type'");   //Retrieve jenis_kamar data
+        $data_jenis_kamar = mysqli_fetch_array($query_select_jenis_kamar);
         if ($status='Corporate') {
             $diskon = $data_jenis_kamar['price']*((10)/(100));
             $data_harga = $data_jenis_kamar['price']-$diskon;
@@ -145,15 +145,15 @@
         $payment = number_format($length_of_stay*$data_harga);  //Payment total with currency format
         $ordered = date('Y-m-d');
 
-        $query_order   = mysql_query("INSERT INTO orders VALUES(NULL, '$customer_id', '$room_no', '$check_in', '$check_out', '$status', '$ordered', '$payment', 'Not Verified')") or die(mysql_error());    //Insert Order data
+        $query_order   = mysqli_query($koneksi, "INSERT INTO orders VALUES(NULL, '$customer_id', '$room_no', '$check_in', '$check_out', '$status', '$ordered', '$payment', 'Not Verified')");    //Insert Order data
 
         //----START RETRIEVE ORDER ID----//
-        $query_select_order    = mysql_query("SELECT * FROM orders WHERE orders_id='$customer_id'") or die(mysql_error());  //Retrieve data order
-        $data_order = mysql_fetch_array($query_select_order);
+        $query_select_order    = mysqli_query($koneksi, "SELECT * FROM orders WHERE orders_id='$customer_id'");  //Retrieve data order
+        $data_order = mysqli_fetch_array($query_select_order);
         $order_id   = $data_order['orders_id'];
         //----END RETRIEVE ORDER ID----//
 
-        $query_room_update = mysql_query("UPDATE room SET keterangan='Dipesan' WHERE room_no='$room_no'");   //Insert keterangan data
+        $query_room_update = mysqli_query($koneksi, "UPDATE room SET keterangan='Dipesan' WHERE room_no='$room_no'");   //Insert keterangan data
             if($query_order && $query_customer){
                 require_once(dirname(__FILE__).'/common/header.php');
             ?>

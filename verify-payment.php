@@ -3,7 +3,7 @@
 	        
 	$payment	= $_GET['id'];
 
-	$verify_payment = mysql_query("UPDATE orders SET keterangan='Verified' WHERE orders_id='$payment'");
+	$verify_payment = mysqli_query($koneksi, "UPDATE orders SET keterangan='Verified' WHERE orders_id='$payment'");
 
 	if ($verify_payment){
 	    header('Location: order-list.php');

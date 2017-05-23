@@ -4,8 +4,8 @@
 
     $customer   = $_GET['id'];
 
-    $query_customer = mysql_query("SELECT * FROM customer WHERE customer_id='$customer'") or die(mysql_error());  //Retrieve data customer
-    $data_customer = mysql_fetch_array($query_customer);
+    $query_customer = mysqli_query($koneksi, "SELECT * FROM customer WHERE customer_id='$customer'") or die(mysqli_error());  //Retrieve data customer
+    $data_customer = mysqli_fetch_array($query_customer);
 ?>
             <!DOCTYPE html>
                 <html lang="en">

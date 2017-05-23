@@ -1,10 +1,10 @@
 <?php
 	require_once(dirname(__FILE__).'/common/header-dashboard.php');
 	include (dirname(__FILE__).'/common/koneksi.php');
-	$query_studio   = mysql_query("SELECT * FROM room WHERE room_type_id='1'")or die(mysql_error());
-	$query_superior = mysql_query("SELECT * FROM room WHERE room_type_id='2'")or die(mysql_error());
-	$query_deluxe	= mysql_query("SELECT * FROM room WHERE room_type_id='3'")or die(mysql_error());
-	$query_executive= mysql_query("SELECT * FROM room WHERE room_type_id='4'")or die(mysql_error());
+	$query_studio   = mysqli_query($koneksi, "SELECT * FROM room WHERE room_type_id='1'");
+	$query_superior = mysqli_query($koneksi, "SELECT * FROM room WHERE room_type_id='2'");
+	$query_deluxe	= mysqli_query($koneksi, "SELECT * FROM room WHERE room_type_id='3'");
+	$query_executive= mysqli_query($koneksi, "SELECT * FROM room WHERE room_type_id='4'");
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -38,7 +38,7 @@
 							<th><h5>Keterangan</h5></th>
 							<th><h5>Action</h5></th>
 						</tr>
-					<?php while($studio = mysql_fetch_array($query_studio)){
+					<?php while($studio = mysqli_fetch_array($query_studio)){
 					?>
 						<tr>
 							<td><?php echo ("<h5>Kamar " . $studio['room_no'] . "</h5>"); ?></td>
@@ -57,7 +57,7 @@
 							<th><h5>Keterangan</h5></th>
 							<th><h5>Action</h5></th>
 						</tr>
-					<?php while($superior = mysql_fetch_array($query_superior)){
+					<?php while($superior = mysqli_fetch_array($query_superior)){
 					?>
 						<tr>
 							<td><?php echo ("<h5>Kamar " . $superior['room_no'] . "</h5>"); ?></td>
@@ -76,7 +76,7 @@
 							<th><h5>Keterangan</h5></th>
 							<th><h5>Action</h5></th>
 						</tr>
-					<?php while($deluxe = mysql_fetch_array($query_deluxe)){
+					<?php while($deluxe = mysqli_fetch_array($query_deluxe)){
 					?>
 						<tr>
 							<td><?php echo ("<h5>Kamar " . $deluxe['room_no'] . "</h5>"); ?></td>
@@ -95,7 +95,7 @@
 							<th><h5>Keterangan</h5></th>
 							<th><h5>Action</h5></th>
 						</tr>
-					<?php while($executive = mysql_fetch_array($query_executive)){
+					<?php while($executive = mysqli_fetch_array($query_executive)){
 					?>
 						<tr>
 							<td><?php echo ("<h5>Kamar " . $executive['room_no'] . "</h5>"); ?></td>

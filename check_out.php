@@ -3,8 +3,8 @@
 	        
 	$orders	= $_GET['id'];
 
-	$check_out = mysql_query("UPDATE orders SET keterangan='Check Out' WHERE orders_id='$orders'");
-	$update_room 	= mysql_query("UPDATE room SET keterangan='Kosong' WHERE room_no='$room_no'");
+	$check_out = mysqli_query($koneksi, "UPDATE orders SET keterangan='Check Out' WHERE orders_id='$orders'");
+	$update_room 	= mysqli_query($koneksi, "UPDATE room SET keterangan='Kosong' WHERE room_no='$room_no'");
 
 	if ($check_out && $update_room){
 	    header('Location: order-list.php');

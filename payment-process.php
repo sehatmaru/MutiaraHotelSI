@@ -6,17 +6,17 @@
         $name			= $_POST['name'];
         $amount			= $_POST['amount'];
 
-        $current_select_order	= mysql_query("SELECT * FROM orders WHERE orders_id='$orders_id'");
-        $current_data_order 	= mysql_fetch_array($current_select_order);
-        $current_select_payment	= mysql_query("SELECT * FROM payment WHERE orders_id='$orders_id'");
-        $current_data_payment	= mysql_fetch_array($current_select_payment);
-        $current_select_customer= mysql_query("SELECT * FROM customer WHERE customer_id='$orders_id'");
-        $current_data_customer  = mysql_fetch_array($current_select_customer);
+        $current_select_order	= mysqli_query($koneksi, "SELECT * FROM orders WHERE orders_id='$orders_id'");
+        $current_data_order 	= mysqli_fetch_array($current_select_order);
+        $current_select_payment	= mysqli_query($koneksi, "SELECT * FROM payment WHERE orders_id='$orders_id'");
+        $current_data_payment	= mysqli_fetch_array($current_select_payment);
+        $current_select_customer= mysqli_query($koneksi, "SELECT * FROM customer WHERE customer_id='$orders_id'");
+        $current_data_customer  = mysqli_fetch_array($current_select_customer);
 
         if (($orders_id==$current_data_order['orders_id'])&&($name==$current_data_customer['name'])) {
         	if ($orders_id==$current_data_payment['orders_id']) {
-        		$select_customer = mysql_query("SELECT * FROM customer WHERE customer_id='$orders_id'");
-        		$data_customer = mysql_fetch_array($select_customer);
+        		$select_customer = mysqli_query($koneksi, "SELECT * FROM customer WHERE customer_id='$orders_id'");
+        		$data_customer = mysqli_fetch_array($select_customer);
 
 	        	require_once(dirname(__FILE__).'/common/header.php');?>
 
@@ -73,14 +73,14 @@
             		$payment = 'img/payment/' . $orders_id . '_payment.jpg';
             	}
 
-        		$query_select_orders = mysql_query("SELECT * FROM orders WHERE orders_id='$orders_id'");
-        		$data_order = mysql_fetch_array($query_select_orders);
+        		$query_select_orders = mysqli_query($koneksi, "SELECT * FROM orders WHERE orders_id='$orders_id'");
+        		$data_order = mysqli_fetch_array($query_select_orders);
         		$room_no = $data_order['room_no'];
 
         		$amountdb = number_format($amount);
                 $payed = date('Y-m-d');
 
-        		$query_payment = mysql_query("INSERT INTO payment VALUES(NULL, '$orders_id', '1', '$room_no', '$orders_id', '$amountdb', '$payed', '$payment')");
+        		$query_payment = mysqli_query($koneksi, "INSERT INTO payment VALUES(NULL, '$orders_id', '1', '$room_no', '$orders_id', '$amountdb', '$payed', '$payment')");
 
         		if ($query_payment) {
         			require_once(dirname(__FILE__)).'/common/header.php';?>

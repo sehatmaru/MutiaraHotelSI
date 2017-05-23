@@ -4,8 +4,8 @@
 
     $room_no    = $_GET['id'];
 
-    $select_room  = mysql_query("SELECT * FROM room WHERE room_no='$room_no'");
-    $data_room    = mysql_fetch_array($select_room);
+    $select_room  = mysqli_query($koneksi, "SELECT * FROM room WHERE room_no='$room_no'");
+    $data_room    = mysqli_fetch_array($select_room);
     $keterangan   = $data_room['keterangan'];
 ?>
             <!DOCTYPE html>
