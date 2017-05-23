@@ -8,16 +8,16 @@
         $keyword=$_REQUEST['keyword'];
         $reload = "order-list.php?pagination=true&keyword=$keyword";
         $sql =  "SELECT * FROM orders WHERE orders_id LIKE '%$keyword%' ORDER BY orders_id";
-        $result = mysql_query($sql);
+        $result = mysqli_query($koneksi, $sql);
     }else{
         $reload = "order-list.php?pagination=true";
         $sql =  "SELECT * FROM orders ORDER BY orders_id";
-        $result = mysql_query($sql);
+        $result = mysqli_query($koneksi, $sql);
     }
 
     $rpp = 5;
     $page = isset($_GET["page"]) ? (intval($_GET["page"])) : 1;
-    $tcount = mysql_num_rows($result);
+    $tcount = mysqli_num_rows($result);
     $tpages = ($tcount) ? ceil($tcount/$rpp) : 1;
     $count = 0;
     $i = ($page-1)*$rpp;
@@ -86,8 +86,8 @@
                 <tbody>
                     <?php
                     while(($count<$rpp) && ($i<$tcount)) {
-                        mysql_data_seek($result,$i);
-                        $data = mysql_fetch_array($result);
+                        mysqli_data_seek($result,$i);
+                        $data = mysqli_fetch_array($result);
                     ?>
                     <tr>
                         <?php echo "<td align='center'><h5><b><a href=view-customer.php?id=".$data['orders_id'].">". $data['orders_id'] ."</a></h5></b>'</td>"; ?>
