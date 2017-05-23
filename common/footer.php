@@ -28,19 +28,19 @@
 				<h4><b>Pages</b></h4>
 				<table>
 					<tr>
-						<td><a href="reservation.php">Room Reservation</a></td>
-						<td><a href="payment-verification.php">Payment Verification</a></td>
+						<td><a href="reservation.php"><b>Room Reservation</b></a></td>
+						<td><a href="payment-verification.php"><b>Payment Verification</b></a></td>
 					</tr>
 					<tr>
-						<td><a href="room.php">Room</a></td>
-						<td><a href="services.php">Services</a></td>
+						<td><a href="room.php"><b>Room</b></a></td>
+						<td><a href="services.php"><b>Services</b></a></td>
 					</tr>
 					<tr>
-						<td><a href="contact.php">Contact</a></td>
-						<td><a href="feedback.php">Feedback</a></td>
+						<td><a href="contact.php"><b>Contact</b></a></td>
+						<td><a href="feedback.php"><b>Feedback</b></a></td>
 					</tr>
 					<tr>
-						<td><a href="status.php">Customer Status</a></td>
+						<td><a href="status.php"><b>Customer Status</b></a></td>
 					</tr>
 				</table>
 			</div>  
