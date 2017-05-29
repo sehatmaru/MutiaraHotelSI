@@ -41,8 +41,17 @@
 					<?php while($studio = mysqli_fetch_array($query_studio)){
 					?>
 						<tr>
-							<td><?php echo ("<h5>Kamar " . $studio['room_no'] . "</h5>"); ?></td>
-							<td align="center"><?php echo("<h5>" . $studio['keterangan'] . "</h5>") ?></td>
+							<td style="padding-top: 15px;"><?php echo ("<h5>Kamar " . $studio['room_no'] . "</h5>"); ?></td>
+							<?php
+								if ($studio['keterangan']=='Kosong') {?>
+									<td style="padding-top: 15px;" align="center" bgcolor="#03C04A"><?php echo("<h5><b>" . $studio['keterangan'] . "</h5></b>") ?></td>
+							<?php }elseif ($studio['keterangan']=='Perbaikan') {?>
+									<td style="padding-top: 15px;" align="center" bgcolor="#CE1705"><?php echo("<h5><b>" . $studio['keterangan'] . "</h5></b>") ?></td>
+							<?php }elseif ($studio['keterangan']=='Dipesan') {?>
+									<td style="padding-top: 15px;" align="center" bgcolor="yellow"><?php echo("<h5><b>" . $studio['keterangan'] . "</h5></b>") ?></td>
+							<?php }else{?>
+									<td style="padding-top: 15px;" align="center" bgcolor="#0591C2"><?php echo("<h5><b>" . $studio['keterangan'] . "</h5></b>") ?></td>
+							<?php } ?>
 							<?php echo "<td align='center'><a class='btn btn-primary' href=edit-room.php?id=".$studio['room_no'].">Edit</a></td>"; ?>
 						</tr>
 				  <?php } ?>
@@ -60,8 +69,17 @@
 					<?php while($superior = mysqli_fetch_array($query_superior)){
 					?>
 						<tr>
-							<td><?php echo ("<h5>Kamar " . $superior['room_no'] . "</h5>"); ?></td>
-							<td align="center"><?php echo("<h5>" . $superior['keterangan'] . "</h5>") ?></td>
+							<td style="padding-top: 15px;"><?php echo ("<h5>Kamar " . $superior['room_no'] . "</h5>"); ?></td>
+							<?php
+								if ($superior['keterangan']=='Kosong') {?>
+									<td style="padding-top: 15px;" align="center" bgcolor="#03C04A"><?php echo("<h5><b>" . $superior['keterangan'] . "</h5></b>") ?></td>
+							<?php }elseif ($superior['keterangan']=='Perbaikan') {?>
+									<td style="padding-top: 15px;" align="center" bgcolor="#CE1705"><?php echo("<h5><b>" . $superior['keterangan'] . "</h5></b>") ?></td>
+							<?php }elseif ($superior['keterangan']=='Dipesan') {?>
+									<td style="padding-top: 15px;" align="center" bgcolor="yellow"><?php echo("<h5><b>" . $superior['keterangan'] . "</h5></b>") ?></td>
+							<?php }else{?>
+									<td style="padding-top: 15px;" align="center" bgcolor="#0591C2"><?php echo("<h5><b>" . $superior['keterangan'] . "</h5></b>") ?></td>
+							<?php } ?>
 							<?php echo "<td align='center'><a class='btn btn-primary' href=edit-room.php?id=".$superior['room_no'].">Edit</a></td>"; ?>
 						</tr>
 				  <?php } ?>
@@ -79,8 +97,17 @@
 					<?php while($deluxe = mysqli_fetch_array($query_deluxe)){
 					?>
 						<tr>
-							<td><?php echo ("<h5>Kamar " . $deluxe['room_no'] . "</h5>"); ?></td>
-							<td align="center"><?php echo("<h5>" . $deluxe['keterangan'] . "</h5>") ?></td>
+							<td style="padding-top: 15px;"><?php echo ("<h5>Kamar " . $deluxe['room_no'] . "</h5>"); ?></td>
+							<?php
+								if ($deluxe['keterangan']=='Kosong') {?>
+									<td style="padding-top: 15px;" align="center" bgcolor="#03C04A"><?php echo("<h5><b>" . $deluxe['keterangan'] . "</h5></b>") ?></td>
+							<?php }elseif ($deluxe['keterangan']=='Perbaikan') {?>
+									<td style="padding-top: 15px;" align="center" bgcolor="#CE1705"><?php echo("<h5><b>" . $deluxe['keterangan'] . "</h5></b>") ?></td>
+							<?php }elseif ($deluxe['keterangan']=='Dipesan') {?>
+									<td style="padding-top: 15px;" align="center" bgcolor="yellow"><?php echo("<h5><b>" . $deluxe['keterangan'] . "</h5></b>") ?></td>
+							<?php }else{?>
+									<td style="padding-top: 15px;" align="center" bgcolor="#0591C2"><?php echo("<h5><b>" . $deluxe['keterangan'] . "</h5></b>") ?></td>
+							<?php } ?>
 							<?php echo "<td align='center'><a class='btn btn-primary' href=edit-room.php?id=".$deluxe['room_no'].">Edit</a></td>"; ?>
 						</tr>
 				  <?php } ?>
@@ -98,8 +125,17 @@
 					<?php while($executive = mysqli_fetch_array($query_executive)){
 					?>
 						<tr>
-							<td><?php echo ("<h5>Kamar " . $executive['room_no'] . "</h5>"); ?></td>
-							<td align="center"><?php echo("<h5>" . $executive['keterangan'] . "</h5>") ?></td>
+							<td style="padding-top: 15px;"><?php echo ("<h5>Kamar " . $executive['room_no'] . "</h5>"); ?></td>
+							<?php
+								if ($executive['keterangan']=='Kosong') {?>
+									<td style="padding-top: 15px;" align="center" bgcolor="#03C04A"><?php echo("<h5><b>" . $executive['keterangan'] . "</h5></b>") ?></td>
+							<?php }elseif ($executive['keterangan']=='Perbaikan') {?>
+									<td style="padding-top: 15px;" align="center" bgcolor="#CE1705"><?php echo("<h5><b>" . $executive['keterangan'] . "</h5></b>") ?></td>
+							<?php }elseif ($executive['keterangan']=='Dipesan') {?>
+									<td style="padding-top: 15px;" align="center" bgcolor="yellow"><?php echo("<h5><b>" . $executive['keterangan'] . "</h5></b>") ?></td>
+							<?php }else{?>
+									<td style="padding-top: 15px;" align="center" bgcolor="#0591C2"><?php echo("<h5><b>" . $executive['keterangan'] . "</h5></b>") ?></td>
+							<?php } ?>
 							<?php echo "<td align='center'><a class='btn btn-primary' href=edit-room.php?id=".$executive['room_no'].">Edit</a></td>"; ?>
 						</tr>
 				  <?php } ?>
