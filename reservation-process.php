@@ -119,15 +119,6 @@
         $length_of_stay  = $interval->days;
         //----END DAY COUNT----//
 
-        $query_customer = mysqli_query($koneksi, "INSERT INTO customer VALUES(NULL, '$name', '$email', '$phone', '$ktp')");  //Insert Customer data
-
-        //----START RETRIEVE CUSTOMER ID----//
-        $query_select_customer    = mysqli_query($koneksi, "SELECT * FROM customer WHERE phone='$phone'");  //Retrieve data customer
-        $data_customer = mysqli_fetch_array($query_select_customer);
-        $customer_id    = $data_customer['customer_id'];    //Retrieve customer_id
-        $customer_name  = $data_customer['name'];
-        //----END RETRIEVE CUSTOMER ID----//
-
         //----START RETRIEVE ROOM NO----//
         $query_select_kamar     = mysqli_query($koneksi, "SELECT * FROM room WHERE room_type_id='$room_type' AND keterangan='Kosong'");
         $data_kamar     = mysqli_fetch_array($query_select_kamar);
@@ -137,6 +128,16 @@
             //----START RETRIEVE PRICE----//
         $query_select_jenis_kamar    = mysqli_query($koneksi, "SELECT * FROM room_type WHERE room_type_id='$room_type'");   //Retrieve jenis_kamar data
         $data_jenis_kamar = mysqli_fetch_array($query_select_jenis_kamar);
+
+        $query_customer = mysqli_query($koneksi, "INSERT INTO customer VALUES(NULL, '$name', '$email', '$phone', '$ktp')");  //Insert Customer data
+
+        //----START RETRIEVE CUSTOMER ID----//
+        $query_select_customer    = mysqli_query($koneksi, "SELECT * FROM customer WHERE phone='$phone'");  //Retrieve data customer
+        $data_customer = mysqli_fetch_array($query_select_customer);
+        $customer_id    = $data_customer['customer_id'];    //Retrieve customer_id
+        $customer_name  = $data_customer['name'];
+        //----END RETRIEVE CUSTOMER ID----//
+        
         if ($status='Corporate') {
             $diskon = $data_jenis_kamar['price']*((10)/(100));
             $data_harga = $data_jenis_kamar['price']-$diskon;
@@ -276,9 +277,9 @@
                 </section>    
             </body>
             </html>
-    <?php
-        require_once(dirname(__FILE__).'/common/footer.php');
-    }
+        <?php
+            require_once(dirname(__FILE__).'/common/footer.php');
+        }
             }else{
                 require_once(dirname(__FILE__).'/common/header.php');
             ?>

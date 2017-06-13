@@ -25,13 +25,14 @@
             <div class="container">
                 <div class="text-center">      
                     <h2>CORPORATE</h2>
-                    <p>Especially for those of you who book a room on behalf of your company, we give a discount of <b>10%</b>. To get a <b>Corporate</b> status you must show us your company data and identity card. Enjoy the best services we offer every time you visit our hotel.</p>
+                    <img src="img/engineer.png" style="width: 100px; height: 100px; margin-bottom: 5px;">
+                    <p>Especially for those of you who book a room on behalf of your company, we give a discount of <b style="color: red;">10%</b>. To get a <b>Corporate</b> status you must show us your company data and identity card. Enjoy the best services we offer every time you visit our hotel.</p>
                 </div>
-            </div>
-            
-			<div class="text-center">        
-                <h2>NON-CORPORATE</h2>
-                <p>Enjoy our hotel services at an attractive price. Enjoy the best services we offer every time you visit our hotel. You will get <b>Non-Corporate</b> status and enjoy our best Hotel services.</p>
+    			<div class="text-center">        
+                    <h2>NON-CORPORATE</h2>
+                    <img src="img/non-engineer.png" style="width: 100px; height: 100px; margin-bottom: 5px;">
+                    <p>Enjoy our hotel services at an attractive price. Enjoy the best services we offer every time you visit our hotel. You will get <b>Non-Corporate</b> status and enjoy our best Hotel services.</p>
+                </div>
             </div>
         </div>
     </section>    
