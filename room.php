@@ -1,5 +1,22 @@
 <?php
 	require_once(dirname(__FILE__).'/common/header.php');
+	include (dirname(__FILE__).'/common/koneksi.php');
+
+    $studio    		= ("SELECT * FROM room WHERE keterangan='Kosong' AND room_type_id='1'");
+    $query_studio   = mysqli_query($koneksi, $studio);
+    $count_studio	= mysqli_num_rows($query_studio);
+
+    $superior    	= ("SELECT * FROM room WHERE keterangan='Kosong' AND room_type_id='2'");
+    $query_superior = mysqli_query($koneksi, $superior);
+    $count_superior	= mysqli_num_rows($query_superior);
+    
+    $deluxe    		= ("SELECT * FROM room WHERE keterangan='Kosong' AND room_type_id='3'");
+    $query_deluxe   = mysqli_query($koneksi, $deluxe);
+    $count_deluxe	= mysqli_num_rows($query_deluxe);
+    
+    $exec    		= ("SELECT * FROM room WHERE keterangan='Kosong' AND room_type_id='4'");
+    $query_exec   	= mysqli_query($koneksi, $exec);
+    $count_exec		= mysqli_num_rows($query_exec);
 ?>
 
 <!DOCTYPE html>
@@ -33,6 +50,7 @@
 						<img src="img/kamar-studio.jpg" style="width: 250px; height: 125px; border-bottom-right-radius: 100px; border-top-left-radius: 100px;">
 						<h3>STUDIO</h3>
 						<h5><b>Rp 250.000/Night</b></h5>
+						<?php echo ("<h6 class='btn btn-primary'><b>" . $count_studio . "</b> room(s) available</h6>"); ?>
 					</div>
 					<div class="contact-info">
 						<ul style="">
@@ -50,6 +68,7 @@
 						<img src="img/kamar-superior.jpg" style="width: 250px; height: 125px; border-bottom-right-radius: 100px; border-top-left-radius: 100px;">
 						<h3>SUPERIOR</h3>
 						<h5><b>Rp 450.000/Night</b></h5>
+						<?php echo ("<h6 class='btn btn-primary'><b>" . $count_superior . "</b> room(s) available</h6 class='btn btn-primary'>"); ?>
 					</div>
 					<div class="contact-info">
 						<ul>
@@ -68,6 +87,7 @@
 						<img src="img/kamar-deluxe.jpg" style="width: 250px; height: 125px; border-bottom-right-radius: 100px; border-top-left-radius: 100px;">
 						<h3>DELUXE</h3>
 						<h5><b>Rp 650.000/Night</b></h5>
+						<?php echo ("<h6 class='btn btn-primary'><b>" . $count_deluxe . "</b> room(s) available</h6 class='btn btn-primary'>"); ?>
 					</div>
 					<div class="contact-info">
 						<ul>
@@ -87,6 +107,7 @@
 						<img src="img/kamar-executive.jpg" style="width: 250px; height: 125px; border-bottom-right-radius: 100px; border-top-left-radius: 100px;">
 						<h3>EXECUTIVE</h3>
 						<h5><b>Rp 850.000/Night</b></h5>
+						<?php echo ("<h6 class='btn btn-primary'><b>" . $count_exec . "</b> room(s) available</h6 class='btn btn-primary'>"); ?>
 					</div>
 					<div class="contact-info">
 						<ul style="">
