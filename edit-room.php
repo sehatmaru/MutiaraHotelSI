@@ -58,44 +58,44 @@
                                         </td>
                                     </tr>
                                     <tr>
-                                        <td><h5><b>Keterangan</b></h5></td>
+                                        <td><h5><b>Status</b></h5></td>
                                         <td><h5><b> : </b></h5></td>
                                         <?php echo ($keterangan); ?>
                                     <?php 
-                                        if ($keterangan=='Kosong'){
+                                        if ($keterangan=='Empty'){
                                          echo  "<td>
                                                 <select class='form-control' name='keterangan'>
-                                                    <option selected><h5>Kosong</h5></option>
-                                                    <option><h5>Terisi</h5></option>
-                                                    <option><h5>Perbaikan</h5></option>
-                                                    <option><h5>Dipesan</h5></option>
+                                                    <option selected><h5>Empty</h5></option>
+                                                    <option><h5>Filled</h5></option>
+                                                    <option><h5>Repair</h5></option>
+                                                    <option><h5>Booked</h5></option>
                                                 </select>
                                             </td>";
-                                        }else if ($keterangan=='Perbaikan') {
+                                        }else if ($keterangan=='Repair') {
                                          echo   "<td>
                                                 <select class='form-control' name='keterangan'>
-                                                    <option><h5>Kosong</h5></option>
-                                                    <option><h5>Terisi</h5></option>
-                                                    <option selected><h5>Perbaikan</h5></option>
-                                                    <option><h5>Dipesan</h5></option>
+                                                    <option><h5>Empty</h5></option>
+                                                    <option><h5>Filled</h5></option>
+                                                    <option selected><h5>Repair</h5></option>
+                                                    <option><h5>Booked</h5></option>
                                                 </select>
                                             </td>";
-                                        }else if ($keterangan=='Dipesan') {
+                                        }else if ($keterangan=='Booked') {
                                          echo   "<td>
                                                 <select class='form-control' name='keterangan'>
-                                                    <option><h5>Kosong</h5></option>
-                                                    <option><h5>Terisi</h5></option>
-                                                    <option><h5>Perbaikan</h5></option>
-                                                    <option selected><h5>Dipesan</h5></option>
+                                                    <option><h5>Empty</h5></option>
+                                                    <option><h5>Filled</h5></option>
+                                                    <option><h5>Repair</h5></option>
+                                                    <option selected><h5>Booked</h5></option>
                                                 </select>
                                             </td>";
                                         }else{
                                          echo   "<td>
                                                 <select class='form-control' name='keterangan'>
-                                                    <option><h5>Kosong</h5></option>
-                                                    <option selected><h5>Terisi</h5></option>
-                                                    <option><h5>Perbaikan</h5></option>
-                                                    <option><h5>Dipesan</h5></option>
+                                                    <option><h5>Empty</h5></option>
+                                                    <option selected><h5>Filled</h5></option>
+                                                    <option><h5>Repair</h5></option>
+                                                    <option><h5>Booked</h5></option>
                                                 </select>
                                             </td>";
                                         } ?>

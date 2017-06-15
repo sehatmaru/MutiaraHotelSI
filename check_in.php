@@ -7,7 +7,7 @@
     $query_order = mysqli_query($koneksi, "SELECT * FROM orders WHERE orders_id='$orders'");
     $data_order = mysqli_fetch_array($query_order);
     $room_no    = $data_order['room_no'];
-    $update_room = mysqli_query($koneksi, "UPDATE room SET keterangan='Terisi' WHERE room_no='$room_no'");
+    $update_room = mysqli_query($koneksi, "UPDATE room SET keterangan='Filled' WHERE room_no='$room_no'");
 
 	if ($check_in && $update_room){
 	    header('Location: order-list.php');

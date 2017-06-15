@@ -13,7 +13,7 @@
         $current_select_customer= mysqli_query($koneksi, "SELECT * FROM customer WHERE customer_id='$orders_id'");
         $current_data_customer  = mysqli_fetch_array($current_select_customer);
 
-        if (($orders_id==$current_data_order['orders_id'])&&($name==$current_data_customer['name'])&&($amount==$current_data_order['payment'])) {
+        if (($orders_id==$current_data_order['orders_id'])&&($name==$current_data_customer['name'])) {
         	if ($orders_id==$current_data_payment['orders_id']) {
         		$select_customer = mysqli_query($koneksi, "SELECT * FROM customer WHERE customer_id='$orders_id'");
         		$data_customer = mysqli_fetch_array($select_customer);

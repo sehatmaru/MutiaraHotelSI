@@ -27,7 +27,7 @@
         //----END DAY COUNT----//
 
         //----START RETRIEVE ROOM NO----//
-        $query_select_kamar     = mysqli_query($koneksi, "SELECT * FROM room WHERE room_type_id='$room_type' AND keterangan='Kosong'");
+        $query_select_kamar     = mysqli_query($koneksi, "SELECT * FROM room WHERE room_type_id='$room_type' AND keterangan='Empty'");
         $data_kamar     = mysqli_fetch_array($query_select_kamar);
         
         if (isset($data_kamar['room_no'])) {
@@ -64,7 +64,7 @@
         $order_id   = $data_order['orders_id'];
         //----END RETRIEVE ORDER ID----//
 
-        $query_room_update = mysqli_query($koneksi, "UPDATE room SET keterangan='Dipesan' WHERE room_no='$room_no'");   //Insert keterangan data
+        $query_room_update = mysqli_query($koneksi, "UPDATE room SET keterangan='Booked' WHERE room_no='$room_no'");   //Insert keterangan data
             if($query_order && $query_customer){
                 require_once(dirname(__FILE__).'/common/header.php');
             ?>

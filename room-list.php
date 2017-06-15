@@ -35,7 +35,7 @@
 						<div class="form-group">
 						<tr bgcolor="#F9F9F9">
 							<th><h5>Room No</h5></th>
-							<th><h5>Keterangan</h5></th>
+							<th><h5>Status</h5></th>
 							<th><h5>Action</h5></th>
 						</tr>
 					<?php while($studio = mysqli_fetch_array($query_studio)){
@@ -43,11 +43,11 @@
 						<tr>
 							<td style="padding-top: 15px;"><?php echo ("<h5>Kamar " . $studio['room_no'] . "</h5>"); ?></td>
 							<?php
-								if ($studio['keterangan']=='Kosong') {?>
+								if ($studio['keterangan']=='Empty') {?>
 									<td style="padding-top: 15px;" align="center" bgcolor="#03C04A"><?php echo("<h5><b>" . $studio['keterangan'] . "</h5></b>") ?></td>
-							<?php }elseif ($studio['keterangan']=='Perbaikan') {?>
+							<?php }elseif ($studio['keterangan']=='Repair') {?>
 									<td style="padding-top: 15px;" align="center" bgcolor="#CE1705"><?php echo("<h5><b>" . $studio['keterangan'] . "</h5></b>") ?></td>
-							<?php }elseif ($studio['keterangan']=='Dipesan') {?>
+							<?php }elseif ($studio['keterangan']=='Booked') {?>
 									<td style="padding-top: 15px;" align="center" bgcolor="yellow"><?php echo("<h5><b>" . $studio['keterangan'] . "</h5></b>") ?></td>
 							<?php }else{?>
 									<td style="padding-top: 15px;" align="center" bgcolor="#0591C2"><?php echo("<h5><b>" . $studio['keterangan'] . "</h5></b>") ?></td>
@@ -63,7 +63,7 @@
 						<div class="form-group">
 						<tr bgcolor="#F9F9F9">
 							<th><h5>Room No</h5></th>
-							<th><h5>Keterangan</h5></th>
+							<th><h5>Status</h5></th>
 							<th><h5>Action</h5></th>
 						</tr>
 					<?php while($superior = mysqli_fetch_array($query_superior)){
@@ -71,11 +71,11 @@
 						<tr>
 							<td style="padding-top: 15px;"><?php echo ("<h5>Kamar " . $superior['room_no'] . "</h5>"); ?></td>
 							<?php
-								if ($superior['keterangan']=='Kosong') {?>
+								if ($superior['keterangan']=='Empty') {?>
 									<td style="padding-top: 15px;" align="center" bgcolor="#03C04A"><?php echo("<h5><b>" . $superior['keterangan'] . "</h5></b>") ?></td>
-							<?php }elseif ($superior['keterangan']=='Perbaikan') {?>
+							<?php }elseif ($superior['keterangan']=='Repair') {?>
 									<td style="padding-top: 15px;" align="center" bgcolor="#CE1705"><?php echo("<h5><b>" . $superior['keterangan'] . "</h5></b>") ?></td>
-							<?php }elseif ($superior['keterangan']=='Dipesan') {?>
+							<?php }elseif ($superior['keterangan']=='Booked') {?>
 									<td style="padding-top: 15px;" align="center" bgcolor="yellow"><?php echo("<h5><b>" . $superior['keterangan'] . "</h5></b>") ?></td>
 							<?php }else{?>
 									<td style="padding-top: 15px;" align="center" bgcolor="#0591C2"><?php echo("<h5><b>" . $superior['keterangan'] . "</h5></b>") ?></td>
@@ -91,7 +91,7 @@
 						<div class="form-group">
 						<tr bgcolor="#F9F9F9">
 							<th><h5>Room No</h5></th>
-							<th><h5>Keterangan</h5></th>
+							<th><h5>Status</h5></th>
 							<th><h5>Action</h5></th>
 						</tr>
 					<?php while($deluxe = mysqli_fetch_array($query_deluxe)){
@@ -99,11 +99,11 @@
 						<tr>
 							<td style="padding-top: 15px;"><?php echo ("<h5>Kamar " . $deluxe['room_no'] . "</h5>"); ?></td>
 							<?php
-								if ($deluxe['keterangan']=='Kosong') {?>
+								if ($deluxe['keterangan']=='Empty') {?>
 									<td style="padding-top: 15px;" align="center" bgcolor="#03C04A"><?php echo("<h5><b>" . $deluxe['keterangan'] . "</h5></b>") ?></td>
-							<?php }elseif ($deluxe['keterangan']=='Perbaikan') {?>
+							<?php }elseif ($deluxe['keterangan']=='Repair') {?>
 									<td style="padding-top: 15px;" align="center" bgcolor="#CE1705"><?php echo("<h5><b>" . $deluxe['keterangan'] . "</h5></b>") ?></td>
-							<?php }elseif ($deluxe['keterangan']=='Dipesan') {?>
+							<?php }elseif ($deluxe['keterangan']=='Booked') {?>
 									<td style="padding-top: 15px;" align="center" bgcolor="yellow"><?php echo("<h5><b>" . $deluxe['keterangan'] . "</h5></b>") ?></td>
 							<?php }else{?>
 									<td style="padding-top: 15px;" align="center" bgcolor="#0591C2"><?php echo("<h5><b>" . $deluxe['keterangan'] . "</h5></b>") ?></td>
@@ -119,7 +119,7 @@
 						<div class="form-group">
 						<tr bgcolor="#F9F9F9">
 							<th><h5>Room No</h5></th>
-							<th><h5>Keterangan</h5></th>
+							<th><h5>Status</h5></th>
 							<th><h5>Action</h5></th>
 						</tr>
 					<?php while($executive = mysqli_fetch_array($query_executive)){
@@ -127,11 +127,11 @@
 						<tr>
 							<td style="padding-top: 15px;"><?php echo ("<h5>Kamar " . $executive['room_no'] . "</h5>"); ?></td>
 							<?php
-								if ($executive['keterangan']=='Kosong') {?>
+								if ($executive['keterangan']=='Empty') {?>
 									<td style="padding-top: 15px;" align="center" bgcolor="#03C04A"><?php echo("<h5><b>" . $executive['keterangan'] . "</h5></b>") ?></td>
-							<?php }elseif ($executive['keterangan']=='Perbaikan') {?>
+							<?php }elseif ($executive['keterangan']=='Repair') {?>
 									<td style="padding-top: 15px;" align="center" bgcolor="#CE1705"><?php echo("<h5><b>" . $executive['keterangan'] . "</h5></b>") ?></td>
-							<?php }elseif ($executive['keterangan']=='Dipesan') {?>
+							<?php }elseif ($executive['keterangan']=='Booked') {?>
 									<td style="padding-top: 15px;" align="center" bgcolor="yellow"><?php echo("<h5><b>" . $executive['keterangan'] . "</h5></b>") ?></td>
 							<?php }else{?>
 									<td style="padding-top: 15px;" align="center" bgcolor="#0591C2"><?php echo("<h5><b>" . $executive['keterangan'] . "</h5></b>") ?></td>

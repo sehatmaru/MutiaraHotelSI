@@ -15,19 +15,19 @@
             $ktp = 'img/ktp/' . $name . '_ktp.jpg';
     }
 
-    $studio    		= ("SELECT * FROM room WHERE keterangan='Kosong' AND room_type_id='1'");
+    $studio    		= ("SELECT * FROM room WHERE keterangan='Empty' AND room_type_id='1'");
     $query_studio   = mysqli_query($koneksi, $studio);
     $count_studio	= mysqli_num_rows($query_studio);
 
-    $superior    	= ("SELECT * FROM room WHERE keterangan='Kosong' AND room_type_id='2'");
+    $superior    	= ("SELECT * FROM room WHERE keterangan='Empty' AND room_type_id='2'");
     $query_superior = mysqli_query($koneksi, $superior);
     $count_superior	= mysqli_num_rows($query_superior);
     
-    $deluxe    		= ("SELECT * FROM room WHERE keterangan='Kosong' AND room_type_id='3'");
+    $deluxe    		= ("SELECT * FROM room WHERE keterangan='Empty' AND room_type_id='3'");
     $query_deluxe   = mysqli_query($koneksi, $deluxe);
     $count_deluxe	= mysqli_num_rows($query_deluxe);
     
-    $exec    		= ("SELECT * FROM room WHERE keterangan='Kosong' AND room_type_id='4'");
+    $exec    		= ("SELECT * FROM room WHERE keterangan='Empty' AND room_type_id='4'");
     $query_exec   	= mysqli_query($koneksi, $exec);
     $count_exec		= mysqli_num_rows($query_exec);
 

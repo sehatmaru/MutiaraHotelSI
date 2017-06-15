@@ -6,7 +6,7 @@
 	$select_orders 	= mysqli_query($koneksi, "SELECT * FROM orders WHERE orders_id='$orders'");
 	$data_orders	= mysqli_fetch_array($select_orders);
 	$room_no		= $data_orders['room_no'];
-	$update_room    = mysqli_query($koneksi, "UPDATE room SET keterangan='Kosong' WHERE room_no='$room_no'");
+	$update_room    = mysqli_query($koneksi, "UPDATE room SET keterangan='Empty' WHERE room_no='$room_no'");
 	$delete_orders 	= mysqli_query($koneksi, "DELETE FROM orders WHERE orders_id='$orders'");
 	$delete_customer= mysqli_query($koneksi, "DELETE FROM customer WHERE customer_id='$orders'");
 	$delete_payment = mysqli_query($koneksi, "DELETE FROM payment WHERE orders_id='$orders'");
