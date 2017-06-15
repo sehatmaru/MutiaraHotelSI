@@ -26,7 +26,7 @@
                 <div class="text-center">      
                     <h2>CORPORATE</h2>
                     <img src="img/engineer.png" style="width: 100px; height: 100px; margin-bottom: 5px;">
-                    <p>Especially for those of you who book a room on behalf of your company, we give a discount of <b style="color: red;">10%</b>. To get a <b>Corporate</b> status you must show us your company data and identity card. Enjoy the best services we offer every time you visit our hotel.</p>
+                    <p>Especially for those of you who book a room on behalf of your company, we give a <b>discount of </b><b style="color: red;">10%</b>. To get a <b>Corporate</b> status you must show us your company data and identity card. Enjoy the best services we offer every time you visit our hotel.</p>
                 </div>
     			<div class="text-center">        
                     <h2>NON-CORPORATE</h2>

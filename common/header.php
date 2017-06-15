@@ -16,8 +16,7 @@
 				<div class="menu">
 					<ul class="nav nav-tabs" role="tablist">
 						<li role="presentation"><a href="reservation.php">ROOM RESERVATION</a></li>
-                        <li role="presentation"><a href="payment-verification.php">Payment Verification</a></li>
-						<li role="presentation"><a href="room.php">ROOMS</a></li>
+                        <li role="presentation"><a href="payment-verification.php">PAYMENT VERIFICATION</a></li>
 						<li role="presentation"><a href="services.php">BUSINESS & SERVICES</a></li>
 						<li role="presentation"><a href="contact.php">CONTACT US</a></li>
 						<li role="presentation"><a href="feedback.php">FEEDBACK</a></li>					

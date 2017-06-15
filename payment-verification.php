@@ -49,7 +49,7 @@
                             <td><input type="text" name="amount" class="form-control" size="58" required></td>
                         </tr>
                         <tr>
-                            <td><h5><b>Bukti</b></h5></td>
+                            <td><h5><b>Payment</b></h5></td>
                             <td><h5><b> : </b></h5></td>
                             <td><h5><input type="file" name="payment" accept="img/*" required></h5></td>
                         </tr>

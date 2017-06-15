@@ -13,7 +13,7 @@
         $current_select_customer= mysqli_query($koneksi, "SELECT * FROM customer WHERE customer_id='$orders_id'");
         $current_data_customer  = mysqli_fetch_array($current_select_customer);
 
-        if (($orders_id==$current_data_order['orders_id'])&&($name==$current_data_customer['name'])) {
+        if (($orders_id==$current_data_order['orders_id'])&&($name==$current_data_customer['name'])&&($amount==$current_data_order['payment'])) {
         	if ($orders_id==$current_data_payment['orders_id']) {
         		$select_customer = mysqli_query($koneksi, "SELECT * FROM customer WHERE customer_id='$orders_id'");
         		$data_customer = mysqli_fetch_array($select_customer);
@@ -169,7 +169,7 @@
         			<div class="container">
         				<div class="text-center">
         					<h2>Payment will not sent</h2>
-        					<p><code><b>Order ID</b></code> or <code><b>Name</b></code> not found. Please verify your payment again.</p>
+        					<p><code><b>Order ID</b></code> or <code><b>Name</b></code> or <code><b>Amount</b></code> you've entered incorrect.<br>Please check and verify your payment again.</p>
         					<a href="payment-verification.php" class="btn btn-primary btn-lg">Back</a>
         				</div>
         			</div>

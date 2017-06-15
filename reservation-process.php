@@ -10,6 +10,7 @@
         $name           = $_POST['name'];
         $email          = $_POST['email'];
         $phone          = $_POST['phone'];
+        $ktp            = $_POST['ktp'];
 
         $current_select_customer    = mysqli_query($koneksi, "SELECT * FROM customer WHERE name='$name'");  //Retrieve data customer
         $current_data_customer = mysqli_fetch_array($current_select_customer);
@@ -17,101 +18,7 @@
         $current_select_order    = mysqli_query($koneksi, "SELECT * FROM orders WHERE orders_id='$current_custumer_id'");
         $current_data_order = mysqli_fetch_array($current_select_order);
 
-        if (($name==$current_data_customer['name']) && ($phone==$current_data_customer['phone'])) {
-            require_once(dirname(__FILE__).'/common/header.php');
-        ?>
-            <!DOCTYPE html>
-                <html lang="en">
-                                <head>
-                    <meta charset="utf-8">
-                    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-                    <meta name="viewport" content="width=device-width, initial-scale=1">
-
-                    <title>Warning !</title>
-
-                    <link href="css/bootstrap.min.css" rel="stylesheet">
-                    <link rel="stylesheet" href="css/font-awesome.min.css">
-                    <link rel="stylesheet" href="css/animate.css">
-                    <link href="css/animate.min.css" rel="stylesheet"> 
-                    <link href="css/style.css" rel="stylesheet" />
-
-                    <script src="js/jquery.js"></script>        
-                    <script src="js/bootstrap.min.js"></script> 
-                    <script src="https://maps.google.com/maps/api/js?sensor=true"></script>
-                    <script src="js/wow.min.js"></script>
-                    <script>wow = new WOW({}).init();</script>  
-                </head>
-                <body>  
-                    <section class="contact-page">
-                        <div class="container">
-                            <div class="text-center">
-                                <h2>Order will not sent</h2>
-                                <p>You have been sent your order before</p>
-                            </div>
-                            <div class="text-center col-md-6"> 
-                                <table class="table">
-                                    <tr>
-                                        <td bgcolor="#E3E3E3" width="200px"><h5><b>Costumer Name</b></h5></td>
-                                        <td><h5><b><?php echo($current_data_customer['name']) ?></b></h5></td>
-                                    </tr>
-                                    <tr>
-                                        <td bgcolor="#E3E3E3"><h5><b>Order ID</b></h5></td>
-                                        <td style="color: red; font-size: 14px;padding-top: 16px"><b><?php echo($current_data_order['orders_id']) ?></b></td>
-                                    </tr>
-                                    <tr>
-                                        <td bgcolor="#E3E3E3"><h5><b>Check In</b></h5></td>
-                                        <td><h5><b><?php echo($current_data_order['check_in']); ?></b></h5></td>
-                                    </tr>
-                                    <tr>
-                                        <td bgcolor="#E3E3E3"><h5><b>Check In</b></h5></td>
-                                        <td><h5><b><?php echo($current_data_order['check_out']); ?></b></h5></td>
-                                    </tr>
-                                    <tr>
-                                        <td bgcolor="#E3E3E3"><h5><b>Ordered</b></h5></td>
-                                        <td><h5><b><?php echo($current_data_order['ordered']); ?></b></h5></td>
-                                    </tr>
-                                    <tr>
-                                        <td bgcolor="#E3E3E3"><h5><b>Payment</b></h5></td>
-                                        <td><h5><b>IDR <?php echo($current_data_order['payment']) ?></b></h5></td>
-                                    </tr>
-                                </table>
-                            </div>
-                            <div class="text-center col-md-6">
-                            <h3>Please pay your order to this Bank Account :</h3>
-                            <table class="table">
-                                <tr>
-                                    <td bgcolor="#E3E3E3" width="200px"><h5><b>A/N</b></h5></td>
-                                    <td><h5><b>Mutiara Balige Hotel</b></h5></td>
-                                </tr>
-                                <tr>
-                                    <td bgcolor="#E3E3E3"><h5><b>Bank Account</b></h5></td>
-                                    <td style="color: red; font-size: 14px;"><b>434955935</b></td>
-                                </tr>
-                                <tr>
-                                    <td bgcolor="#E3E3E3"><h5><b>Bank Type</b></h5></td>
-                                    <td><h5><b>BNI</b></h5></td>
-                                </tr>
-                            </table><br>
-                            </div>
-                        </div>
-                        <div class="text-center">
-                            <h4><b>NOTE </b>Not order before ? Plese <b><a href="contact.php">contact us</a></b> for more information.</h4>
-                            <a class="btn btn-primary btn-lg" href="payment-verification.php">Verify Payment</a>
-                        </div>
-                    </div>
-                </section>    
-            </body>
-            </html>
-            <?php
-                require_once(dirname(__FILE__).'/common/footer.php');
-        }else{
-            //----START UPLOAD FILE----//
-        if ($_FILES['ktp']['name']) {
-            move_uploaded_file($_FILES['ktp']['tmp_name'], 'img/ktp/' . $name . '_ktp.jpg');
-            $ktp = 'img/ktp/' . $name . '_ktp.jpg';
-        }
-        //----END UPLOAD FILE----//
-
+        if (($name!=$current_data_customer['name']) && ($phone!=$current_data_customer['phone'])) {
         //----START DAY COUNT----//
         $start_date = new DateTime($check_in);
         $end_date   = new DateTime($check_out);

@@ -1,9 +1,6 @@
 <?php
     require_once(dirname(__FILE__).'/common/header.php');
     include (dirname(__FILE__).'/common/koneksi.php');
-
-    $query_kamar    = ("SELECT * FROM room_type");   //Retrieve room_type data
-    $hasil_query    = mysqli_query($koneksi, $query_kamar);
 ?>
 
 <!DOCTYPE html>
@@ -55,7 +52,7 @@
         <div class="container" style="margin-top: 50px">
             <div class="row contact-wrap">
                 <div class="col-md-6 wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="300ms">
-                    <form action="reservation-process.php" method="post" role="form" class="contactForm" enctype="multipart/form-data">
+                    <form action="room.php" method="post" role="form" class="contactForm" enctype="multipart/form-data">
                     <div class="text-center">
                         <h2>Order Data</h2>
                     </div>
@@ -74,20 +71,6 @@
                                 <td><a href="status.php"><i class="fa fa-question-circle-o fa" style="font-size: 20px; color: #111111;"></i></a></td>
                             </tr>
                         </div>
-                        <div class="form-group">
-                            <tr>
-                                <td><h5>Room Type </h5></td>
-                                <td><h5>:</h5></td>
-                                <td>
-                                    <select class="form-control" name="room_type">
-                                        <?php 
-                                            while ($baris=mysqli_fetch_row($hasil_query)) {
-                                                echo "<option value='$baris[0]'>$baris[1]</option>";
-                                            }
-                                        ?>
-                                </td>
-                                <td><a href="room.php"><i class="fa fa-question-circle-o fa" style="font-size: 20px; color: #111111;"></i></a></td>
-                            </tr>
                         <div class="form-group">
                             <tr>
                                 <td><h5>Check In </h5></td>
@@ -144,7 +127,7 @@
                     </div>
                 </div>
             </div>
-            <div class="text-center"><button type="submit" name="submit" class="btn btn-primary btn-lg" required>Order</button></div>
+            <div class="text-center"><button type="submit" name="submit" class="btn btn-primary btn-lg" required>CHOOSE ROOM TYPE</button></div>
             </form>
         </div>
     </section>    
